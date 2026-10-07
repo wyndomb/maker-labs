@@ -1,0 +1,20 @@
+{
+  "name": "ai-with-wyndo",
+  "interface": {
+    "displayName": "AI With Wyndo"
+  },
+  "plugins": [
+    {
+      "name": "maker-labs",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

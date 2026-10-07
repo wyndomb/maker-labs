@@ -2,7 +2,7 @@
 
 Maker Labs is a set of fifteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). It works in Claude chat, Cowork, and Claude Code.
 
-Version 0.1.20 contains these skills:
+Version 0.1.21 contains these skills:
 
 - Opposite Start Ideation: find differentiated angles.
 - Brain Dump to Content: paste messy notes, choose an angle, and get a writing brief. Uses the reader's own material and voice, with no required connections. Flags incomplete sources and anonymizes sensitive details by default.
@@ -27,7 +27,7 @@ Version 0.1.20 contains these skills:
 
 - Daily Work Brief: prepare for the workday using the reader's email and calendar, with optional Slack context. Recommends a starting action, verifies current thread status, flags work requests, and prepares for today's meetings. Uses the reader's own accounts and goals, discloses partial coverage, and stays read-only. Slack channel selection is only requested when the available tools require it.
 
-Start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
+New here? Run `/maker-labs:start` for a short menu, or add your task after it (`/maker-labs:start I have messy notes for a newsletter`) to go straight to the right skill. You can also start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
 
 Optional app connections: Gmail, Google Calendar, Notion, Zoom, Granola, Wispr Flow, and Slack. Each reader needs their own service access and any required authentication. Connections do not authorize sending, publishing, or changing events. Social Repurposer saves to Notion only when asked and when the target is accessible.
 

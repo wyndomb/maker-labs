@@ -1,0 +1,17 @@
+{
+  "name": "maker-labs",
+  "displayName": "Maker Labs",
+  "version": "0.1.19",
+  "description": "Fifteen independent skills for creators: find content angles, turn notes and interviews into drafts, review and de-slop writing, repurpose for social, make LinkedIn carousels, build brand guides, research competitors and SEO briefs, pull meeting decisions, and prepare a daily work brief.",
+  "author": {
+    "name": "Wyndo",
+    "email": "wyndo.mitra@gmail.com",
+    "url": "https://aiwithwyndo.com"
+  },
+  "homepage": "https://aiwithwyndo.com",
+  "repository": "https://github.com/wyndomb/maker-labs",
+  "license": "MIT",
+  "keywords": ["writing", "content", "newsletter", "linkedin", "seo", "creators", "productivity"],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}

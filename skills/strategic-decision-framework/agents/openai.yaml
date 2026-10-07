@@ -1,0 +1,4 @@
+interface:
+  display_name: "Strategic Decision Framework"
+  short_description: "Compare business options using real evidence"
+  default_prompt: "Use $strategic-decision-framework to assess this business choice and propose a measurable next step."

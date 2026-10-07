@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PLAN_TITLE}}</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --ink: #1d1b18;
+      --muted: #6b6258;
+      --line: #ded5c8;
+      --panel: #fffaf2;
+      --accent: #246b5b;
+      --accent-2: #b9472f;
+      --accent-3: #2d5b88;
+      --ok: #dcefe5;
+      --warn: #f8e5c2;
+      --risk: #f2d3cb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: start;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      line-height: 0.98;
+      max-width: 840px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      min-width: 190px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px;
+    }
+
+    .meta div {
+      margin-bottom: 10px;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: 3px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    ul, ol {
+      padding-left: 1.3rem;
+      margin-bottom: 0;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .workflow > li, .step {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      padding: 12px;
+      min-height: 120px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #efe7dc;
+    }
+
+    .ok { background: var(--ok); }
+    .warn { background: var(--warn); }
+    .risk { background: var(--risk); }
+    .accent { border-top: 4px solid var(--accent-3); }
+    .danger { border-top: 4px solid var(--accent-2); }
+
+    .approval {
+      border: 2px solid var(--ink);
+      background: #ffffff;
+    }
+
+    .approval strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 860px) {
+      header,
+      .grid,
+      .workflow {
+        display: block;
+      }
+
+      .card,
+      .step,
+      .meta {
+        margin-bottom: 14px;
+      }
+    }
+
+    .table-hint { display: none; font-size: 0.85rem; }
+    @media (max-width: 600px) { .table-hint { display: block; } }
+    .table-scroll { overflow-x: auto; max-width: 100%; }
+    .table-scroll table { min-width: 520px; }
+    main > section.card { margin-bottom: 16px; }
+    .card, .meta, td { overflow-wrap: anywhere; min-width: 0; }
+    a { color: #245781; text-decoration: underline; }
+    @media print {
+      body { background: white; }
+      .table-hint { display: none; }
+      main { max-width: none; padding: 0; }
+      header, .grid, .workflow, .section-map, .path-grid { display: block; }
+      .card, .meta { margin-bottom: 12px; break-inside: avoid; }
+      .table-scroll { overflow: visible; }
+      table { font-size: 10pt; }
+      .table-scroll table { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <span class="label">Visual plan</span>
+        <h1>{{PLAN_TITLE}}</h1>
+        <p>{{PLAN_SUMMARY}}</p>
+        <div class="pill-row">
+          <span class="pill">Status: {{PLAN_STATUS}}</span>
+          <span class="pill">Execution: {{EXECUTION_STATUS}}</span>
+          <span class="pill">{{AUTHORIZATION_NOTE}}</span>
+        </div>
+      </div>
+      <aside class="meta">
+        <div><span class="label">Created</span>{{DATE}}</div>
+        <div><span class="label">Task type</span>{{TASK_TYPE}}</div>
+        <div><span class="label">Recommended path</span>{{RECOMMENDED_PATH_SHORT}}</div>
+      </aside>
+    </header>
+
+    <section class="grid">
+      <div class="card span-6">
+        <h2>Goal</h2>
+        <p>{{GOAL}}</p>
+      </div>
+      <div class="card span-6">
+        <h2>What I Think You Want</h2>
+        <p>{{USER_INTENT}}</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card span-8 accent">
+        <h2>Recommended Path</h2>
+        <p>{{RECOMMENDED_PATH}}</p>
+      </div>
+      <div class="card span-4">
+        <h2>Human Decisions</h2>
+        <ol>
+          {{HUMAN_DECISIONS}}
+        </ol>
+      </div>
+    </section>
+
+    <section class="card span-12">
+      <h2>Workflow Map</h2>
+      <ol class="workflow">
+        {{WORKFLOW_STEPS}}
+      </ol>
+    </section>
+
+    <section class="grid">
+      <div class="card span-6">
+        <h2>Options Considered</h2>
+        <p class="table-hint">Scroll sideways to see all columns.</p>
+        <div class="table-scroll" role="region" aria-label="Plan comparison table" tabindex="0"><table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Why it could work</th>
+              <th>Tradeoff</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{OPTIONS_TABLE}}
+          </tbody>
+        </table></div>
+      </div>
+      <div class="card span-6 danger">
+        <h2>Risks And Failure Modes</h2>
+        <ul>
+          {{RISKS}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card span-4">
+        <h2>Inputs Needed</h2>
+        <ul>
+          {{INPUTS}}
+        </ul>
+      </div>
+      <div class="card span-4">
+        <h2>Source Files Or Tools</h2>
+        <ul>
+          {{SOURCES_TOOLS}}
+        </ul>
+      </div>
+      <div class="card span-4">
+        <h2>Assumptions And Unknowns</h2>
+        <ul>
+          {{ASSUMPTIONS}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card span-6 ok">
+        <h2>Success Checks</h2>
+        <ol>
+          {{SUCCESS_CHECKS}}
+        </ol>
+      </div>
+      <div class="card span-6 warn">
+        <h2>Do Not Do</h2>
+        <ul>
+          {{DO_NOT_DO}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="card approval">
+      <strong>Approval Box</strong>
+      <p>{{APPROVAL_PROMPT}}</p>
+      <p>{{APPROVAL_NEXT_STEP}}</p>
+    </section>
+  </main>
+</body>
+</html>

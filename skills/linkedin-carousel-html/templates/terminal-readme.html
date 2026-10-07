@@ -1,0 +1,208 @@
+<!--
+TEMPLATE: terminal-readme
+
+WHEN TO CHOOSE
+  Technical posts for people who build: prompt and agent workflows, tool teardowns, "how I built X", before and after edits.
+  Looks like a code editor on a dark ground. Skip it for reflective or narrative posts and for non-technical readers.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY. Replace every word of it, including the file name in the title bar and the
+  label in each pane head.
+  CSS draws the editor marks for you: the "//" before a .comment, the "#" before a .head, the "$" and the block
+  cursor on a .prompt, the arrows on .item rows, the line numbers, plus and minus signs and the change count on
+  a .diff pane, and the numerals on .cmd rows. Do not type them.
+  This is a monospace face, so it runs wide. Count characters as well as words.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words)
+  hook     80 words in total. Comment line, headline up to 12 words (3 or 4 lines, about 21 characters a line),
+           sub 10 to 22 words (2 or 3 lines), a pane with exactly three .item rows of up to 8 words each
+           (about 40 characters to stay on one line), a prompt of up to 6 words.
+  content  115 words in total. Comment line as the section label, headline up to 10 words (2 or 3 lines, about
+           27 characters a line), body 25 to 45 words in one paragraph, a .diff pane of 3 to 5 lines (about
+           45 characters each, a longer line wraps and counts as two), a "try today" comment and a prompt of
+           up to 15 words (2 lines).
+           For a list or a code sample, use plain .ln lines with no .add or .del. The count hides itself.
+  cta      105 words in total. Comment line, headline up to 8 words (1 or 2 lines, about 21 characters a line),
+           sub up to 16 words (2 lines), a .palette pane with exactly three .cmd rows (bold label up to 5 words
+           on one line, explanation up to 16 words on 2 lines), a prompt of up to 8 words.
+
+DECORATION RULES
+  Every slide keeps the title bar and the status bar. They are the brand.
+  Three syntax colours and no more: red for the "#" and the minus sign, blue for arrows, numerals and the
+  change count, green for the prompt, the cursor, added lines and ONE bold key phrase per slide (b inside
+  .sub or .body).
+  One pane per slide. No icons, no emoji, no drawn arrows.
+
+PER-CAROUSEL OVERRIDES
+  "No cursor": add class "still" to a .prompt to drop the block cursor.
+  "Quieter diff": use plain .ln lines and mark the one line that matters with .add.
+-->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --bg: #0d1117; --panel: #161b22; --line: #30363d; --ink: #c9d1d9; --bright: #f0f6fc; --muted: #8b949e; --dim: #6e7681;
+  --red: #ff7b72; --blue: #79c0ff; --green: #7ee787; --add: #0e3a1f; --del: #2d1a1f;
+  --avatar-fill: var(--green); --avatar-ink: #0d1117;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Title bar (all slides) */
+.bar { display: flex; align-items: center; gap: 16px; padding: 20px 28px; background: var(--panel); border-bottom: 2px solid var(--line); font-size: 20px; font-weight: 500; line-height: 28px; color: var(--muted); }
+.bar::after { content: ""; flex: none; width: 96px; }
+.dots { flex: none; width: 96px; display: flex; gap: 10px; }
+.dots i { width: 16px; height: 16px; border-radius: 50%; background: #ff5f56; }
+.dots i:nth-child(2) { background: #ffbd2e; }
+.dots i:nth-child(3) { background: #27c93f; }
+.file { flex: 1; min-width: 0; text-align: center; }
+
+/* Editor body */
+.editor { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 52px 56px 40px; }
+.comment { font-size: 24px; font-weight: 400; line-height: 34px; color: var(--muted); }
+.comment::before { content: "// "; }
+.head { position: relative; margin-top: 28px; padding-left: 0.9em; font-weight: 700; letter-spacing: -0.01em; color: var(--bright); }
+.head::before { content: "#"; position: absolute; left: 0; color: var(--red); }
+.sub { margin-top: 28px; font-size: 34px; font-weight: 400; line-height: 50px; }
+.body { margin-top: 28px; font-size: 30px; font-weight: 400; line-height: 46px; }
+.sub b, .body b { font-weight: 700; color: var(--green); }
+
+/* Pane: takes the free space above and below it */
+.pane { position: relative; margin-block: auto; display: flex; flex-direction: column; border: 2px solid var(--line); border-radius: 12px; background: var(--panel); }
+.sub, .body { margin-bottom: 44px; }
+.pane-head { flex: none; padding: 16px 28px; border-bottom: 2px solid var(--line); border-radius: 10px 10px 0 0; background: var(--panel); font-size: 22px; font-weight: 500; line-height: 30px; color: var(--muted); }
+
+/* Prompt line with block cursor */
+.prompt { position: relative; margin-top: 44px; padding-left: 46px; font-size: 32px; font-weight: 500; line-height: 46px; color: var(--bright); }
+.prompt::before { content: "$"; position: absolute; left: 0; font-weight: 700; color: var(--green); }
+.prompt::after { content: ""; display: inline-block; width: 17px; height: 34px; margin: 0 -31px 0 14px; vertical-align: -6px; background: var(--green); }
+.prompt.still::after { content: none; }
+
+/* Status bar (all slides) */
+.status { display: flex; align-items: center; gap: 16px; padding: 18px 28px; background: var(--panel); border-top: 2px solid var(--line); }
+.status .avatar { width: 52px; height: 52px; font-size: 24px; font-weight: 700; }
+.who { flex: 1; min-width: 0; font-size: 18px; font-weight: 400; line-height: 24px; color: var(--muted); }
+.who b { display: block; font-size: 20px; font-weight: 600; line-height: 26px; color: var(--ink); }
+.branch { flex: none; font-size: 18px; font-weight: 500; line-height: 24px; color: var(--muted); }
+.branch::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 10px; border-radius: 50%; background: var(--green); }
+.branch b { font-weight: 600; color: var(--green); }
+
+/* Hook */
+.hook .head { font-size: 68px; line-height: 78px; }
+.hook .pane { flex: 0 1 450px; }
+.hook .pane-head::before { content: "$ "; }
+.item { flex: 1 0 auto; align-content: center; position: relative; padding: 26px 28px 26px 96px; font-size: 34px; font-weight: 500; line-height: 46px; color: var(--bright); }
+.item + .item { border-top: 2px solid var(--line); }
+.item::before { content: "->"; position: absolute; left: 28px; font-weight: 700; color: var(--blue); }
+
+/* Content */
+.content .head { font-size: 54px; line-height: 64px; }
+.diff { counter-reset: ln add del; padding-bottom: 14px; background: var(--bg); }
+.diff .pane-head { margin-bottom: 14px; padding-right: 150px; }
+.diff::after { content: "+" counter(add) " \2212" counter(del); position: absolute; top: 16px; right: 28px; font-size: 22px; font-weight: 600; line-height: 30px; color: var(--blue); }
+.diff:not(:has(.add, .del))::after { content: none; }
+.ln { position: relative; padding: 6px 28px 6px 132px; font-size: 28px; font-weight: 500; line-height: 40px; counter-increment: ln; }
+.ln::before { content: counter(ln); position: absolute; left: 0; width: 64px; text-align: right; font-weight: 400; color: var(--dim); }
+.ln::after { position: absolute; left: 92px; top: 6px; font-weight: 700; }
+.ln.add { counter-increment: ln add; background: var(--add); color: var(--green); }
+.ln.add::after { content: "+"; }
+.ln.del { counter-increment: ln del; background: var(--del); color: var(--muted); }
+.ln.del::after { content: "\2212"; color: var(--red); }
+.pane + .comment { margin-top: 44px; }
+.comment + .prompt { margin-top: 10px; font-size: 30px; line-height: 44px; }
+
+/* CTA */
+.cta .head { font-size: 68px; line-height: 78px; }
+.palette { flex: 0 1 610px; counter-reset: cmd; }
+.palette .pane-head::before { content: "> "; }
+.cmd { flex: 1 0 auto; align-content: center; position: relative; padding: 20px 28px 20px 96px; counter-increment: cmd; }
+.cmd + .cmd { border-top: 2px solid var(--line); }
+.cmd::before { content: counter(cmd, decimal-leading-zero); position: absolute; left: 28px; font-size: 26px; font-weight: 700; line-height: 42px; color: var(--blue); }
+.cmd b { display: block; font-size: 30px; font-weight: 700; line-height: 42px; color: var(--bright); }
+.cmd span { display: block; margin-top: 2px; font-size: 26px; font-weight: 400; line-height: 38px; color: var(--muted); }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="80">
+  <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="file">~/posts/{{PAGE}}-hook.md</div></div>
+
+  <div class="editor">
+    <p class="comment">{{PUBLICATION_NAME}} · {{TOTAL_RAW}} slides</p>
+    <h1 class="head">5 carousel mistakes that lose readers by slide 2</h1>
+    <p class="sub">Each one has a <b>fix you can apply</b> before you publish.</p>
+
+    <div class="pane">
+      <div class="pane-head">inside this carousel</div>
+      <div class="item">Two ideas fighting on one slide</div>
+      <div class="item">Body text too small for a phone</div>
+      <div class="item">Slides that end without a next step</div>
+    </div>
+
+    <p class="prompt">swipe to read all five</p>
+  </div>
+
+  <div class="status">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    <div class="branch">main · {{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CONTENT (repeat 4 to 8 times) ============ -->
+<section class="slide content" data-max-words="115">
+  <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="file">~/posts/{{PAGE}}-density.md</div></div>
+
+  <div class="editor">
+    <p class="comment">mistake 01 of 05 · density</p>
+    <h2 class="head">Two ideas fighting on one slide</h2>
+    <p class="body">A reader on a phone sees <b>one slide at a time</b>. When that slide carries two ideas, neither one lands and the next swipe feels like work. Give every idea its own slide.</p>
+
+    <div class="pane diff">
+      <div class="pane-head">deck-outline.md</div>
+      <div class="ln">Slide 2: why readers leave</div>
+      <div class="ln del">Slide 3: the problem and the fix</div>
+      <div class="ln add">Slide 3: the problem</div>
+      <div class="ln add">Slide 4: the fix</div>
+      <div class="ln">Slide 5: the next step</div>
+    </div>
+
+    <p class="comment">try today</p>
+    <p class="prompt">read your densest slide out loud and split it at "and also"</p>
+  </div>
+
+  <div class="status">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    <div class="branch">main · {{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="105">
+  <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="file">~/posts/{{PAGE}}-next.md</div></div>
+
+  <div class="editor">
+    <p class="comment">your turn</p>
+    <h2 class="head">Fix one slide today</h2>
+    <p class="sub">Open your next deck and start with <b>the slide you like least</b>.</p>
+
+    <div class="pane palette">
+      <div class="pane-head">next steps</div>
+      <div class="cmd"><b>Split the densest slide</b><span>Find the slide with two ideas and give each one its own page.</span></div>
+      <div class="cmd"><b>Check it on your phone</b><span>If you squint at the body text, raise the size and cut words.</span></div>
+      <div class="cmd"><b>Add the next step</b><span>End each slide with one thing the reader can do.</span></div>
+    </div>
+
+    <p class="prompt">follow {{AUTHOR_NAME}} for the next teardown</p>
+  </div>
+
+  <div class="status">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    <div class="branch">main · {{PAGE}} / {{TOTAL}} · <b>ready</b></div>
+  </div>
+</section>

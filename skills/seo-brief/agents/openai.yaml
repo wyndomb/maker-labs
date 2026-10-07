@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Brief"
+  short_description: "Turn search evidence into a practical writing brief"
+  default_prompt: "Use $seo-brief to research this topic or page with OpenSEO and recommend whether to create, update, or reconsider it, with a sourced writing brief."

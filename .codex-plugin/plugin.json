@@ -1,0 +1,28 @@
+{
+  "interface": {
+    "displayName": "Maker Labs",
+    "shortDescription": "Plan, write, make carousels",
+    "longDescription": "Fifteen independent skills for finding angles, turning rough notes into writing briefs, drafting, adaptive draft reviews, repurposing, editing, business decisions, visual planning, source-linked news briefings, LinkedIn carousels, reusable brand guides, competitor analysis, finding meeting decisions and action items, evidence-backed SEO writing briefs, and daily work priorities with meeting preparation. Includes optional Gmail, Google Calendar, Notion, Zoom, Granola, Wispr Flow, and Slack connections, plus an OpenSEO MCP connection for SEO research.",
+    "developerName": "Maker Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "Find a differentiated content angle for my topic.",
+      "Interview me about my experience and help me draft an article."
+    ],
+    "logo": "./assets/maker-labs-logo.png",
+    "composerIcon": "./assets/maker-labs-logo.png"
+  },
+  "apps": "./.app.json",
+  "name": "maker-labs",
+  "version": "0.1.19",
+  "description": "Fifteen independent skills for finding angles, turning rough notes into writing briefs, drafting, adaptive draft reviews, repurposing, editing, business decisions, visual planning, source-linked news briefings, LinkedIn carousels, reusable brand guides, competitor analysis, finding meeting decisions and action items, evidence-backed SEO writing briefs, and daily work priorities with meeting preparation. Includes optional Gmail, Google Calendar, Notion, Zoom, Granola, Wispr Flow, and Slack connections, plus an OpenSEO MCP connection for SEO research.",
+  "author": {
+    "name": "Wyndo / Maker Labs"
+  },
+  "keywords": [],
+  "skills": "./skills",
+  "mcpServers": "./mcp.json"
+}

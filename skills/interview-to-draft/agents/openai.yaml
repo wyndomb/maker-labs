@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interview to Draft"
+  short_description: "Turn expert interviews into sourced drafts"
+  default_prompt: "Use $interview-to-draft to interview me about a topic and build a source-grounded draft."

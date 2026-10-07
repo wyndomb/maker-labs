@@ -1,0 +1,197 @@
+<!--
+TEMPLATE: sticker-collage
+
+WHEN TO CHOOSE
+  Frameworks, lists, multi-step playbooks and opinionated takes where personality matters as much as the point.
+  A studio zine: tilted stickers, a tilted headline, hand-drawn marks. The loudest of the warm templates.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY. Replace every word of it.
+  Copy the footer block unchanged onto every slide. The page dots draw themselves from the page tokens.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words; words in .tag and .badge are not counted, so keep to the limits here)
+  hook     coral tag up to 4 words, headline up to 10 words (3 or 4 lines, never 5) with one .pop word,
+           yellow sticker up to 16 words, exactly three labels of up to 7 words each (about 40 characters, one line).
+  content  badge number, label up to 6 words, headline up to 10 words (2 or 3 lines) ending in a .scribble word,
+           body 35 to 50 words in 2 or 3 short paragraphs, one yellow sticker: coral tag up to 3 words plus up to 20 words.
+  cta      yellow tag up to 3 words, headline up to 7 words (1 or 2 lines) ending in a .scribble word,
+           exactly 3 steps (bold label up to 5 words, explanation up to 15 words).
+
+DECORATION RULES
+  Two or three hand-drawn marks per slide, never all four: squiggle, asterisk, arrow, scribble underline.
+  Sample mix: hook = squiggle + asterisk + arrow, content = squiggle + scribble, cta = asterisk + scribble.
+  Two sticker colours per slide at most (yellow, coral). The headline takes one treatment: .pop or .scribble.
+  Put .scribble on the last word of a headline only, so the line never sits on top of the next row of text.
+  Tilt stays small. Stickers within 3 degrees, headline 1 degree. The footer is always level.
+  data-decor goes on the svg marks, .tag, .badge, .go and .scrawl. Stickers that carry real copy
+  (.quote, .chip) stay unmarked so the checker counts their words.
+
+PER-CAROUSEL OVERRIDES
+  "Calmer": add class "calm" to the section. Headline and stickers go level and the arrow is hidden.
+  "More playful": on a content slide, paste the arrow svg from the hook inside .quote, after the copy. On the hook
+  or a content slide, add one margin note inside .peek or .quote: <span class="scrawl" data-decor>start here</span>
+  (up to 3 words, one per slide).
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=JetBrains+Mono:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --bg: #FFF8EE; --ink: #1A1A1A; --muted: #666666; --yellow: #FFD43B; --coral: #FF5A4E;
+  --avatar-fill: var(--coral); --avatar-ink: var(--bg);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 72px;
+}
+
+/* Hand-drawn marks */
+.squiggle { position: absolute; top: 46px; right: 52px; rotate: -4deg; }
+.asterisk { position: absolute; }
+.arrow { position: absolute; }
+.scribble { position: relative; display: inline-block; }
+.scribble::after { content: ""; position: absolute; left: -3%; right: -3%; bottom: -0.1em; height: 0.24em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cpath d='M5 15C50 6 96 19 142 10S236 6 295 13C250 12 200 20 150 18' fill='none' stroke='%231A1A1A' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+.scrawl { position: absolute; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 24px; font-style: italic; font-weight: 500; line-height: 30px; color: var(--coral); rotate: -6deg; white-space: nowrap; }
+
+/* Header (all slides) */
+.masthead { position: relative; z-index: 2; font-size: 18px; font-weight: 700; letter-spacing: 0.18em; line-height: 24px; text-transform: uppercase; }
+
+/* Stickers */
+.tag { align-self: flex-start; padding: 14px 28px; border-radius: 999px; background: var(--coral); box-shadow: 8px 8px 0 var(--ink); rotate: -3deg; font-size: 24px; font-weight: 800; letter-spacing: 0.12em; line-height: 32px; text-transform: uppercase; color: var(--bg); }
+.tag.sun { background: var(--yellow); color: var(--ink); }
+.quote { position: relative; align-self: flex-start; padding: 22px 30px; border-radius: 16px; background: var(--yellow); box-shadow: 8px 8px 0 var(--ink); rotate: 2deg; font-size: 30px; font-weight: 700; line-height: 42px; }
+.num { width: 48px; height: 48px; flex: none; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; font-size: 20px; font-weight: 800; letter-spacing: 0; }
+
+/* Key word: wrap ONE word on the hook */
+.pop { position: relative; z-index: 0; display: inline-block; padding: 0 0.12em; margin: 0 -0.04em; }
+.pop::before { content: ""; position: absolute; z-index: -1; inset: 0.13em 0 0.02em; border-radius: 10px; background: var(--yellow); rotate: -1.5deg; }
+
+/* Footer (all slides) */
+.footer { position: relative; z-index: 2; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.author { display: flex; align-items: center; gap: 16px; font-size: 18px; font-weight: 500; line-height: 26px; color: var(--muted); }
+.author .avatar { width: 64px; height: 64px; border: 3px solid var(--ink); font-size: 26px; }
+.author b { display: block; font-size: 22px; font-weight: 800; line-height: 30px; color: var(--ink); }
+.dots { flex: none; display: flex; align-items: center; }
+.dots span { height: 10px; background: radial-gradient(circle closest-side, rgba(26, 26, 26, 0.22) 94%, transparent) 0 0 / 22px 10px repeat-x; }
+.dots span:first-child { width: calc((var(--p) - 1) * 22px); }
+.dots span:last-child { width: calc((var(--t) - var(--p)) * 22px); }
+.dots .on { width: 44px; margin: 0 6px; border-radius: 5px; background: var(--coral); }
+
+/* Hook */
+.hero { position: relative; z-index: 2; margin-top: auto; padding: 36px 0 0 56px; display: flex; flex-direction: column; }
+.hero .asterisk { left: -28px; top: 28px; }
+.hook h1 { margin-top: 40px; font-size: 104px; font-weight: 900; letter-spacing: -0.045em; line-height: 98px; text-wrap: balance; rotate: -1deg; transform-origin: 0 50%; }
+.hook .quote { margin-top: 48px; max-width: 600px; }
+.peek { position: relative; z-index: 2; margin-top: auto; padding: 44px 0 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.peek .arrow { right: -6px; top: -34px; rotate: 5deg; }
+.peek .scrawl { right: 0; top: 150px; }
+.chip { max-width: 700px; display: flex; align-items: center; gap: 16px; padding: 12px 30px 12px 12px; border: 3px solid var(--ink); border-radius: 40px; background: var(--bg); box-shadow: 6px 6px 0 var(--ink); font-size: 28px; font-weight: 700; line-height: 38px; rotate: -1.5deg; }
+.chip:nth-of-type(2) { margin-left: 48px; rotate: 1deg; }
+.chip:nth-of-type(3) { margin-left: 16px; rotate: -1deg; }
+
+/* Content */
+.label { margin-top: 56px; display: flex; align-items: center; gap: 20px; font-size: 20px; font-weight: 800; letter-spacing: 0.14em; line-height: 28px; text-transform: uppercase; }
+.badge { width: 76px; height: 76px; flex: none; border: 3px solid var(--ink); border-radius: 50%; background: var(--yellow); box-shadow: 5px 5px 0 var(--ink); display: grid; place-items: center; rotate: -3deg; font-size: 30px; font-weight: 900; letter-spacing: -0.02em; }
+.content h2 { margin-top: 32px; font-size: 72px; font-weight: 900; letter-spacing: -0.04em; line-height: 76px; text-wrap: balance; rotate: -1deg; transform-origin: 0 50%; }
+.body { margin-block: auto; padding: 16px 0 48px; font-size: 34px; font-weight: 500; line-height: 50px; }
+.body p + p { margin-top: 20px; }
+.content .quote { margin: 0 0 44px 12px; max-width: 760px; padding-top: 34px; }
+.quote .tag { position: absolute; top: -30px; left: 24px; padding: 8px 20px; box-shadow: 5px 5px 0 var(--ink); rotate: -5deg; font-size: 20px; line-height: 28px; }
+.quote .arrow { left: calc(100% - 4px); top: -74px; width: 150px; height: 123px; rotate: 8deg; }
+.quote .scrawl { right: -40px; top: -112px; }
+
+/* CTA */
+.cta .tag { margin-top: 56px; }
+.cta h2 { margin-top: 40px; font-size: 104px; font-weight: 900; letter-spacing: -0.045em; line-height: 100px; text-wrap: balance; rotate: -1deg; transform-origin: 0 50%; }
+.cta .asterisk { right: 72px; top: 92px; }
+.steps { flex: 1; margin: 56px 0 28px; display: flex; flex-direction: column; border-bottom: 3px dashed var(--ink); }
+.steps li { flex: 1; display: flex; align-items: center; gap: 28px; padding: 18px 0; border-top: 3px dashed var(--ink); }
+.steps .n { flex: none; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 52px; font-weight: 700; line-height: 60px; }
+.steps b { display: block; font-size: 40px; font-weight: 800; letter-spacing: -0.015em; line-height: 50px; }
+.steps p { margin-top: 4px; font-size: 30px; font-weight: 500; line-height: 42px; color: var(--muted); }
+.cta .author .avatar { width: 80px; height: 80px; font-size: 32px; }
+.cta .author b { font-size: 26px; line-height: 34px; }
+.go { width: 88px; height: 88px; flex: none; border: 3px solid var(--ink); border-radius: 50%; background: var(--coral); box-shadow: 6px 6px 0 var(--ink); display: grid; place-items: center; rotate: -3deg; }
+.cta .footer .dots { margin-left: auto; }
+
+/* "Calmer" override */
+.calm h1, .calm h2, .calm .tag, .calm .quote, .calm .chip, .calm .badge, .calm .go { rotate: none; }
+.calm .arrow, .calm .scrawl { display: none; }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="65">
+  <svg class="squiggle" data-decor width="220" height="80" viewBox="0 0 220 80" fill="none" stroke="#FF5A4E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40Q25 4 42 40T76 40T110 40T144 40T178 40T212 40"/></svg>
+  <div class="masthead">{{PUBLICATION_NAME}}</div>
+
+  <div class="hero">
+    <svg class="asterisk" data-decor width="72" height="72" viewBox="0 0 60 60" fill="none" stroke="#FFD43B" stroke-width="8" stroke-linecap="round"><path d="M30 6v48M6 30h48M13 13l34 34M47 13L13 47"/></svg>
+    <div class="tag" data-decor>5 mistakes, 5 fixes</div>
+    <h1>5 carousel mistakes that <span class="pop">lose</span> readers by slide 2</h1>
+    <div class="quote">Each one has a fix you can apply before you publish.</div>
+  </div>
+
+  <div class="peek">
+    <svg class="arrow" data-decor width="220" height="180" viewBox="0 0 220 180" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M64 16C186 6 228 146 40 150M40 150l30 14M40 150l27-18"/></svg>
+    <div class="chip"><span class="num">01</span>Two ideas fighting on one slide</div>
+    <div class="chip"><span class="num">02</span>Body text too small for a phone</div>
+    <div class="chip"><span class="num">03</span>Slides that end without a next step</div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="dots" style="--p:{{PAGE_RAW}};--t:{{TOTAL_RAW}}"><span></span><span class="on"></span><span></span></div>
+  </div>
+</section>
+
+<!-- ============ CONTENT (repeat 4 to 8 times) ============ -->
+<section class="slide content" data-max-words="100">
+  <svg class="squiggle" data-decor width="220" height="80" viewBox="0 0 220 80" fill="none" stroke="#FF5A4E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40Q25 4 42 40T76 40T110 40T144 40T178 40T212 40"/></svg>
+  <div class="masthead">{{PUBLICATION_NAME}}</div>
+
+  <div class="label"><span class="badge" data-decor>01</span>Mistake 01 of 05 · Density</div>
+  <h2>Two ideas fighting on one <span class="scribble">slide</span></h2>
+
+  <div class="body">
+    <p>A reader on a phone sees one slide at a time.</p>
+    <p>When that slide carries two ideas, neither one lands and the next swipe feels like work.</p>
+    <p>Give every idea its own slide, even if the deck gets longer. One clear point per slide is easier to finish.</p>
+  </div>
+
+  <div class="quote"><span class="tag" data-decor>Try today</span>Read your densest slide out loud. If you say "and also", split it in two.</div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="dots" style="--p:{{PAGE_RAW}};--t:{{TOTAL_RAW}}"><span></span><span class="on"></span><span></span></div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="85">
+  <svg class="asterisk" data-decor width="96" height="96" viewBox="0 0 60 60" fill="none" stroke="#FFD43B" stroke-width="8" stroke-linecap="round"><path d="M30 6v48M6 30h48M13 13l34 34M47 13L13 47"/></svg>
+  <div class="masthead">{{PUBLICATION_NAME}}</div>
+
+  <div class="tag sun" data-decor>Your turn</div>
+  <h2>Fix one slide <span class="scribble">today</span></h2>
+
+  <ol class="steps">
+    <li><span class="n">01</span><div><b>Split the densest slide</b><p>Find the slide with two ideas and give each one its own page.</p></div></li>
+    <li><span class="n">02</span><div><b>Check it on your phone</b><p>If you squint at the body text, raise the size and cut words.</p></div></li>
+    <li><span class="n">03</span><div><b>Add the next step</b><p>End each slide with one thing the reader can do.</p></div></li>
+  </ol>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="dots" style="--p:{{PAGE_RAW}};--t:{{TOTAL_RAW}}"><span></span><span class="on"></span><span></span></div>
+    <div class="go" data-decor><svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#FFF8EE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22h30M25 9l13 13-13 13"/></svg></div>
+  </div>
+</section>

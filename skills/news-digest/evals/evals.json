@@ -1,0 +1,64 @@
+{
+  "skill_name": "news-digest",
+  "fixture_notice": "Synthetic data only; evaluations are not real news.",
+  "evals": [
+    {
+      "name": "multi-topic supplied sources",
+      "prompt": "Summarize local transit and library developments for Linden residents in the past 48 hours using source-packet.md. No live browsing is available.",
+      "checks": [
+        "Label supplied-source scope.",
+        "Merge A/B/C as one event and one evidence chain.",
+        "Include D as approval for a future pilot, not all-library hours already changed.",
+        "Exclude F stale event, G unknown timing, H other region, I rumor.",
+        "Chat only; no forced categories or padded count."
+      ]
+    },
+    {
+      "name": "no live tools",
+      "prompt": "Give me today's photography industry news. No browsing and no supplied sources are available.",
+      "checks": [
+        "Do not invent news from memory.",
+        "State limitation; offer supplied-source summary without requiring Tavily installation."
+      ]
+    },
+    {
+      "name": "ambiguous topic",
+      "prompt": "Give me the news.",
+      "checks": [
+        "Ask one concise topic question; no assumed AI subject."
+      ]
+    },
+    {
+      "name": "optional HTML",
+      "prompt": "Turn the supplied briefing into HTML without refreshing it.",
+      "checks": [
+        "Preserve coverage and research timestamp, facts, caveats and URLs.",
+        "No CDN, real-world sample claims, or unfilled placeholders.",
+        "Usable narrow layout and keyboard-accessible links."
+      ]
+    },
+    {
+      "name": "quiet day",
+      "prompt": "Using source-packet.md, cover Linden transit from 2026-10-05 11:00 to 12:00 UTC only.",
+      "checks": [
+        "No qualifying verified development.",
+        "No widening, invented stories, or claim that no news exists anywhere."
+      ]
+    },
+    {
+      "name": "topic switch",
+      "prompt": "Using only the supplied sources, switch to the library pilot and explain what residents should know.",
+      "checks": [
+        "No AI lens.",
+        "State one branch, November start, four Saturdays, and supplied-source limits."
+      ]
+    },
+    {
+      "name": "no file creation",
+      "prompt": "Visualize the supplied digest, but file tools are unavailable.",
+      "checks": [
+        "Offer standalone HTML source; no invented saved artifact link."
+      ]
+    }
+  ]
+}

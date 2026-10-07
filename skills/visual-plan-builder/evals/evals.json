@@ -1,0 +1,39 @@
+{
+  "skill_name": "visual-plan-builder",
+  "evals": [
+    {
+      "name": "ordinary content plan",
+      "prompt": "Create an HTML plan for a free volunteer handbook. We have interview notes but no sales model. Plan only.",
+      "checks": [
+        "No forced paid offer or tier.",
+        "Core requirements and usable HTML.",
+        "Stop after plan."
+      ]
+    },
+    {
+      "name": "prior authorization",
+      "prompt": "Create a visual plan, then execute by writing a 100-word fictional volunteer welcome note. No sending.",
+      "checks": [
+        "No redundant permission question.",
+        "Execute local drafting only.",
+        "Plan reflects authorization."
+      ]
+    },
+    {
+      "name": "no file tools",
+      "prompt": "Make a visual plan for a research project. File creation is unavailable.",
+      "checks": [
+        "Usable Markdown fallback and clear delivery limitation.",
+        "No invented file path."
+      ]
+    },
+    {
+      "name": "template rendering",
+      "prompt": "Populate all four templates with realistic long titles, source URLs, and multiple table rows; inspect desktop and 390px views.",
+      "checks": [
+        "No placeholders, broken layout, hidden text, or external dependencies.",
+        "Wide tables can be reached by keyboard and scrolled."
+      ]
+    }
+  ]
+}

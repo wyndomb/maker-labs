@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Plan Builder"
+  short_description: "Turn messy AI work into visual plans"
+  default_prompt: "Use $visual-plan-builder to create a visual plan before executing this task."

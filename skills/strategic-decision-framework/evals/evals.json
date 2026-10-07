@@ -1,0 +1,36 @@
+{
+  "skill_name": "strategic-decision-framework",
+  "fixture_notice": "Synthetic evaluation data; not publication evidence.",
+  "evals": [
+    {
+      "name": "focused evidence-backed decision",
+      "prompt": "Use fixtures/offer-choice.md to compare the three options. Recommend a path within my constraints.",
+      "expected_output": "Reject the full launch as currently infeasible; distinguish interest from paid demand; conditional conclusion and bounded next action."
+    },
+    {
+      "name": "conflicting evidence",
+      "prompt": "Using fixtures/offer-choice.md, explain the July survey and October payment test disagreement. I think 60 percent interest proves demand.",
+      "expected_output": "Compare sample, question, price, timing, and actual commitment without treating survey interest as purchases."
+    },
+    {
+      "name": "analysis only",
+      "prompt": "Using fixtures/offer-choice.md, show the decision tension without recommending an option.",
+      "expected_output": "Neutral analysis with constraint violations visible, no disguised preferred option."
+    },
+    {
+      "name": "review unavailable",
+      "prompt": "Use fixtures/offer-choice.md with evidence and challenge reviewers. Subagents are unavailable in this environment.",
+      "expected_output": "Sequential fallback disclosed; no fabricated agent execution; one brief."
+    },
+    {
+      "name": "vague decision",
+      "prompt": "I am thinking about changing direction in my business. Run the strategic decision framework.",
+      "expected_output": "At most three focused questions; no invented business context."
+    },
+    {
+      "name": "full analysis",
+      "prompt": "Run all ten lenses on fixtures/offer-choice.md.",
+      "expected_output": "All ten applied without invented facts, repeated insights minimized, uncertainty explicit."
+    }
+  ]
+}

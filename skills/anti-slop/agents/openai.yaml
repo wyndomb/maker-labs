@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti-Slop"
+  short_description: "Edit generic writing while keeping your voice"
+  default_prompt: "Use $anti-slop to lightly edit this draft while preserving its meaning and my voice."

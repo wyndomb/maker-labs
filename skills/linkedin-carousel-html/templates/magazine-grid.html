@@ -1,0 +1,210 @@
+<!--
+TEMPLATE: magazine-grid
+
+WHEN TO CHOOSE
+  Field reports, research-style pieces, long lists and multi-section posts where authority matters more than play.
+  Cool stone paper, serif headlines, heavy rules and one cobalt accent. Reads like a print journal.
+  Skip it for playful or personal posts.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY. Replace every word of it.
+  The masthead (publication on the left, section label on the right) is identical on every slide of a deck.
+  Write the section label once, up to 4 words, and repeat it. Never put an issue or volume number in it.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words)
+  hook     side numeral = the count the deck delivers (1 or 2 characters) plus a one-word label.
+           headline up to 10 words (4 or 5 lines), ending with a period. Sub up to 16 words.
+           "Inside" table of contents: exactly three rows of up to 7 words, each with its slide number,
+           then one "+ N" row of up to 8 words (N = content slides not listed; delete the row when N is 0),
+           then the continue line.
+  content  side numeral = section number (two digits) plus a one-word label.
+           headline up to 9 words (2 or 3 lines), ending with a period. Body 40 to 60 words in 1 or 2 paragraphs.
+           A shorter body leaves the slide half empty and the checker will say so.
+           one pull quote: kicker ("Try today", "Steal this", "Watch out for") plus up to 18 words.
+  cta      side numeral is "+". Headline up to 6 words (2 or 3 lines), ending with a period.
+           eyebrow up to 5 words, then exactly three steps (bold label up to 6 words, explanation up to 14 words),
+           then the follow line (cobalt verb plus up to 5 muted words).
+
+DECORATION RULES
+  Cobalt is the only colour besides ink and paper. It appears in the side numeral, eyebrows, roman numerals,
+  the pull quote rule, the continue arrow and the page number. Never in headline or body words.
+  No stickers, no tilts, no icons, no highlights. The rules and hairlines do the work.
+  Every headline ends with a period.
+  The side numeral is navigation (or the deck's count on the hook). Keep it. Nothing else goes in the side column.
+
+PER-CAROUSEL OVERRIDES
+  "Warmer": add class "warm" to every slide for a warm paper background.
+  "Cooler": add class "plain" to every slide. Headlines switch to Inter and only the numerals stay serif.
+  "Editorial italic": add class "italic" to the hook .sub for a serif italic deck line. Once per deck at most.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --bg: #F2EEE5; --ink: #1A1A1A; --muted: #6B6358; --cobalt: #0033CC; --hair: rgba(26, 26, 26, 0.2);
+  --serif: 'Playfair Display', Georgia, serif;
+  --avatar-fill: var(--ink); --avatar-ink: var(--bg);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-variant-numeric: lining-nums;
+  padding: 72px;
+}
+.slide.warm { --bg: #FFF8EE; }
+
+/* Masthead (all slides, identical through the deck) */
+.masthead { flex: none; display: flex; justify-content: space-between; align-items: baseline; gap: 32px; padding-top: 18px; border-top: 4px solid var(--ink); font-size: 17px; font-weight: 700; line-height: 24px; letter-spacing: 0.2em; text-transform: uppercase; }
+.masthead span:last-child { font-weight: 600; text-align: right; }
+
+/* Two-column hero: side numeral + main column */
+.grid { flex: none; margin-top: 52px; display: flex; align-items: flex-start; gap: 36px; }
+.side { flex: none; width: 212px; }
+.numeral { font-family: var(--serif); font-size: 190px; font-weight: 900; line-height: 190px; letter-spacing: -0.04em; font-variant-numeric: lining-nums; color: var(--cobalt); white-space: nowrap; }
+.label { margin-top: 10px; font-size: 17px; font-weight: 700; line-height: 24px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.label::after { content: ""; display: block; width: 64px; height: 2px; margin-top: 12px; background: var(--ink); }
+.main { flex: 1; min-width: 0; }
+.main h1, .main h2 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.02em; }
+.main h1 { margin-top: 14px; font-size: 84px; line-height: 90px; }
+.sub { margin-top: 24px; font-size: 30px; font-weight: 400; line-height: 44px; }
+.sub.italic { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 32px; }
+
+/* Eyebrow + ruled rows (hook table of contents, cta steps) */
+.toc { flex: 1; margin-top: 40px; display: flex; flex-direction: column; }
+.eyebrow { padding-bottom: 14px; border-bottom: 1px solid var(--ink); font-size: 17px; font-weight: 700; line-height: 24px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--cobalt); }
+.row { flex: 1; max-height: 116px; display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--hair); font-size: 29px; font-weight: 600; line-height: 38px; }
+.row:last-of-type { border-bottom: 0; }
+.rn { flex: none; width: 64px; font-family: var(--serif); font-size: 36px; font-weight: 700; line-height: 38px; color: var(--cobalt); font-variant-numeric: lining-nums; }
+.row .t { flex: 1; min-width: 0; }
+.pg { flex: none; font-size: 17px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.row.more .t { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 30px; color: var(--muted); }
+.continue { flex: none; display: flex; align-items: baseline; gap: 22px; padding-top: 18px; border-top: 1px solid var(--ink); font-size: 17px; font-weight: 500; line-height: 24px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.continue b { font-weight: 700; letter-spacing: 0.22em; color: var(--cobalt); white-space: nowrap; }
+
+/* Footer (all slides) */
+.footer { flex: none; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.author { display: flex; align-items: center; gap: 14px; min-width: 0; font-size: 18px; font-weight: 500; line-height: 26px; color: var(--muted); }
+.author .avatar { width: 56px; height: 56px; font-size: 24px; border: 2px solid var(--ink); }
+.author b { display: block; font-size: 20px; font-weight: 700; color: var(--ink); }
+.page { flex: none; font-size: 17px; font-weight: 600; letter-spacing: 0.2em; white-space: nowrap; }
+.page b { margin-right: 4px; font-family: var(--serif); font-size: 40px; font-weight: 700; line-height: 44px; letter-spacing: 0; color: var(--cobalt); font-variant-numeric: lining-nums; }
+
+/* Content */
+.content .main h2 { margin-top: 8px; font-size: 72px; line-height: 80px; }
+.body { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--ink); font-size: 34px; font-weight: 400; line-height: 52px; }
+.body p + p { margin-top: 20px; }
+.pull { flex: none; margin-block: auto; padding: 2px 0 6px 32px; border-left: 4px solid var(--cobalt); }
+.pull .kicker { font-size: 17px; font-weight: 700; line-height: 24px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--cobalt); }
+.pull blockquote { margin-top: 10px; font-family: var(--serif); font-size: 44px; font-style: italic; font-weight: 500; line-height: 58px; }
+.content .grid { padding-bottom: 24px; }
+.content .footer { margin-top: 24px; }
+
+/* CTA */
+.cta .main h2 { margin-top: 14px; font-size: 84px; line-height: 90px; }
+.cta .row { max-height: 230px; padding: 20px 0; display: grid; grid-template-columns: 76px 1fr; align-content: center; column-gap: 0; row-gap: 4px; }
+.cta .rn { width: auto; font-size: 40px; line-height: 46px; }
+.cta .row b { font-size: 34px; font-weight: 700; line-height: 46px; }
+.cta .row p { grid-column: 2; font-size: 28px; font-weight: 400; line-height: 40px; color: var(--muted); }
+
+/* "Cooler" override */
+.plain .main h1, .plain .main h2 { font-family: 'Inter', system-ui, sans-serif; letter-spacing: -0.035em; }
+.plain .main h1, .plain.cta .main h2 { font-size: 76px; line-height: 84px; }
+.plain.content .main h2 { font-size: 62px; line-height: 70px; }
+.plain .pull blockquote { font-family: 'Inter', system-ui, sans-serif; font-style: normal; font-weight: 600; font-size: 36px; line-height: 50px; }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="100">
+  <div class="masthead"><span>{{PUBLICATION_NAME_UPPER}}</span><span>Field notes / Carousels</span></div>
+
+  <div class="grid">
+    <div class="side">
+      <div class="numeral">5</div>
+      <div class="label">Mistakes</div>
+    </div>
+    <div class="main">
+      <h1>The carousel mistakes that lose readers by slide 2.</h1>
+      <p class="sub">Each one has a fix you can apply before you publish.</p>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="eyebrow">Inside this deck</div>
+    <div class="row"><span class="rn">i.</span><span class="t">Two ideas fighting on one slide</span><span class="pg">P. 02</span></div>
+    <div class="row"><span class="rn">ii.</span><span class="t">Body text too small for a phone</span><span class="pg">P. 03</span></div>
+    <div class="row"><span class="rn">iii.</span><span class="t">Slides that end without a next step</span><span class="pg">P. 04</span></div>
+    <div class="row more"><span class="rn">+ 2</span><span class="t">more inside, each with its own fix</span></div>
+    <div class="continue"><b>Continue →</b><span>Swipe for the report</span></div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="page"><b>{{PAGE}}</b> / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CONTENT (repeat 4 to 8 times) ============ -->
+<section class="slide content" data-max-words="115">
+  <div class="masthead"><span>{{PUBLICATION_NAME_UPPER}}</span><span>Field notes / Carousels</span></div>
+
+  <div class="grid">
+    <div class="side">
+      <div class="numeral">01</div>
+      <div class="label">Mistake</div>
+    </div>
+    <div class="main">
+      <h2>Two ideas fighting on one slide.</h2>
+      <div class="body">
+        <p>A reader on a phone sees one slide at a time. When that slide carries two ideas, neither one lands and the next swipe feels like work.</p>
+        <p>Give every idea its own slide, even if the deck gets longer. A long deck that reads easily keeps people swiping.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull">
+    <div class="kicker">Try today</div>
+    <blockquote>Read your densest slide out loud. If you say “and also”, split it in two.</blockquote>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="page"><b>{{PAGE}}</b> / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="105">
+  <div class="masthead"><span>{{PUBLICATION_NAME_UPPER}}</span><span>Field notes / Carousels</span></div>
+
+  <div class="grid">
+    <div class="side">
+      <div class="numeral">+</div>
+      <div class="label">Your turn</div>
+    </div>
+    <div class="main">
+      <h2>Fix one slide today.</h2>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="eyebrow">Three moves before you publish</div>
+    <div class="row"><span class="rn">i.</span><b>Split the densest slide</b><p>Find the slide with two ideas and give each one its own page.</p></div>
+    <div class="row"><span class="rn">ii.</span><b>Check it on your phone</b><p>If you squint at the body text, raise the size and cut words.</p></div>
+    <div class="row"><span class="rn">iii.</span><b>Add the next step</b><p>End each slide with one thing the reader can do.</p></div>
+    <div class="continue"><b>Follow →</b><span>For the next teardown</span></div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="page"><b>{{PAGE}}</b> / {{TOTAL}}</div>
+  </div>
+</section>

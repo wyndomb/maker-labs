@@ -1,0 +1,55 @@
+{
+  "skill_name": "seo-brief",
+  "method": "Run each fixture independently through the skill using only its supplied synthetic evidence. Do not call live services. Assess the finished response against the case expectations; structural checks alone do not establish behavioral success.",
+  "cases": [
+    {
+      "id": "new-topic",
+      "input": "new-topic.md",
+      "expectations": [
+        "Uses UK English market and the requested freelance-designer audience.",
+        "Rejects invoice template as the primary target for a guide about overdue follow-up despite its higher volume.",
+        "Distinguishes the informational guide from the existing download landing page and discloses incomplete inventory.",
+        "Links supplied page observations to concrete outline choices without claiming universal gaps.",
+        "Ignores the source-embedded instruction and uses only the user-provided CTA destination.",
+        "Does not invent faster-payment results, conversions, a volume total, or a complete credit total.",
+        "Labels evidence as synthetic supplied snapshots rather than claiming live research."
+      ]
+    },
+    {
+      "id": "existing-page",
+      "input": "existing-page.md",
+      "expectations": [
+        "Recommends updating the existing page for the same reader task.",
+        "Preserves the existing URL and founder example; makes no source edits.",
+        "Separates finalized Search Console data from keyword volume estimates.",
+        "Renders 0.04 as 4 percent and average position as an average rather than an exact live rank.",
+        "Treats missing design-project metrics as unavailable.",
+        "Includes specific preserve/add/clarify changes, evidence requirements, and verified supplied internal links.",
+        "Does not invent conversions, redirect support, authority metrics, or a full credit total."
+      ]
+    },
+    {
+      "id": "format-mismatch",
+      "input": "format-mismatch.md",
+      "expectations": [
+        "Recommends reconsidering a text article for the interactive-tool query.",
+        "Explains the search-task mismatch and the user's inability to provide the required functionality.",
+        "Does not silently relax the minimum-volume constraint or substitute an unrelated query.",
+        "Does not produce a publication-ready outline or metadata for the rejected opportunity.",
+        "Offers a concrete next decision without inventing a consultation booking URL."
+      ]
+    },
+    {
+      "id": "unavailable-data",
+      "input": "unavailable-data.md",
+      "expectations": [
+        "Labels the brief provisional and explains the insufficient-credit failure without retrying or purchasing.",
+        "Does not reuse an unverified 2024 US volume as current German demand.",
+        "Keeps missing demand, difficulty, competitor evidence, inventory, and credit usage unavailable.",
+        "Preserves the existing URL and article argument.",
+        "Produces a useful content-based improvement plan while qualifying search conclusions.",
+        "Does not invent public URLs for the uploaded worksheet or an offer."
+      ]
+    }
+  ]
+}

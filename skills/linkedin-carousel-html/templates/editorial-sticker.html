@@ -1,0 +1,178 @@
+<!--
+TEMPLATE: editorial-sticker
+
+WHEN TO CHOOSE
+  General-purpose decks and mixed content. A warm editorial page: heavy ink headline, one tilted yellow sticker,
+  a coral squiggle in the corner. Pick this when you want the brand to be recognisable without a loud personality.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY. Replace every word of it.
+  Copy the footer block unchanged onto every slide. The page dots draw themselves from the page tokens.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words; words inside a .sticker pill are not counted, so keep to the limits here)
+  hook     pill sticker up to 5 words, headline up to 11 words (3 or 4 lines, never 5), sub up to 20 words,
+           contents label plus exactly three rows of up to 8 words each (one line per row).
+  content  label up to 6 words, headline up to 10 words (2 or 3 lines), body 35 to 50 words in 1 or 2 paragraphs,
+           one pull-quote sticker: kicker up to 3 words plus up to 22 words.
+           Every content slide keeps its pull-quote. Without it the slide is left with an empty band.
+  cta      label up to 5 words, headline up to 7 words (1 or 2 lines), exactly 3 steps (bold label up to 5 words,
+           explanation up to 15 words), one pill sticker up to 5 words.
+
+DECORATION RULES
+  One yellow sticker per slide: the pill (hook, cta) or the pull-quote (content). Never two.
+  The coral squiggle sits top right on every slide. Coral appears nowhere else except the active page dot.
+  The yellow asterisk appears on the hook and the CTA only. Leave it off content slides.
+  Headlines stay solid ink. No highlight, no underline, no second colour.
+  data-decor goes on the svg marks and the pill sticker. The pull-quote carries real copy, so it stays unmarked.
+
+PER-CAROUSEL OVERRIDES
+  "Calmer": add class "flat" to a .sticker or .quote to remove the tilt.
+  "No kicker": delete the .kicker span inside .quote for a plain pull-quote.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --bg: #FFF8EE; --ink: #1A1A1A; --muted: #666666; --yellow: #FFD43B; --coral: #FF5A4E; --rule: rgba(26, 26, 26, 0.16);
+  --avatar-fill: var(--yellow); --avatar-ink: var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 72px;
+}
+
+/* Corner decoration */
+.squiggle { position: absolute; top: 50px; right: 60px; }
+.asterisk { position: absolute; }
+
+/* Header (all slides) */
+.masthead { font-size: 18px; font-weight: 700; letter-spacing: 0.16em; line-height: 24px; text-transform: uppercase; }
+
+/* Yellow pill sticker */
+.sticker { align-self: flex-start; padding: 14px 26px; border-radius: 999px; background: var(--yellow); box-shadow: 8px 8px 0 var(--ink); rotate: -2deg; font-size: 24px; font-weight: 800; letter-spacing: 0.12em; line-height: 32px; text-transform: uppercase; }
+.sticker.flat, .quote.flat { rotate: none; }
+
+/* Numbered circle */
+.num { width: 56px; height: 56px; flex: none; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; font-size: 22px; font-weight: 800; letter-spacing: 0; color: var(--ink); }
+
+/* Section label (content, cta) */
+.label { margin-top: 64px; display: flex; align-items: center; gap: 18px; font-size: 20px; font-weight: 800; letter-spacing: 0.14em; line-height: 28px; text-transform: uppercase; }
+
+/* Footer (all slides) */
+.footer { padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.author { display: flex; align-items: center; gap: 18px; font-size: 18px; font-weight: 500; line-height: 26px; color: var(--muted); }
+.author .avatar { width: 72px; height: 72px; border: 4px solid var(--ink); font-size: 28px; }
+.author b { display: block; font-size: 24px; font-weight: 800; line-height: 32px; color: var(--ink); }
+.dots { flex: none; display: flex; align-items: center; }
+.dots span { height: 10px; background: radial-gradient(circle closest-side, rgba(26, 26, 26, 0.22) 94%, transparent) 0 0 / 22px 10px repeat-x; }
+.dots span:first-child { width: calc((var(--p) - 1) * 22px); }
+.dots span:last-child { width: calc((var(--t) - var(--p)) * 22px); }
+.dots .on { width: 44px; margin: 0 6px; border-radius: 5px; background: var(--coral); }
+
+/* Hook */
+.hook .masthead { margin-bottom: 36px; }
+.hook .sticker { margin-top: auto; }
+.hook h1 { margin-top: 40px; font-size: 100px; font-weight: 900; letter-spacing: -0.035em; line-height: 100px; text-wrap: balance; }
+.hook .sub { margin-top: 28px; max-width: 840px; font-size: 36px; font-weight: 500; line-height: 50px; }
+.toc { position: relative; margin-top: auto; padding: 36px 0 20px; }
+.toc-label { padding-bottom: 14px; border-bottom: 4px solid var(--ink); font-size: 18px; font-weight: 800; letter-spacing: 0.16em; line-height: 24px; text-transform: uppercase; }
+.toc li { display: flex; align-items: center; gap: 20px; padding: 14px 0; border-bottom: 2px solid var(--rule); font-size: 30px; font-weight: 700; line-height: 40px; }
+.toc .asterisk { right: 0; top: -10px; }
+
+/* Content */
+.content h2 { margin-top: 28px; padding-bottom: 36px; border-bottom: 4px solid var(--ink); font-size: 72px; font-weight: 900; letter-spacing: -0.035em; line-height: 78px; text-wrap: balance; }
+.body { margin-block: auto; padding: 20px 0 28px; font-size: 36px; font-weight: 500; line-height: 54px; }
+.body p + p { margin-top: 22px; }
+.quote { align-self: flex-start; max-width: 860px; margin: 0 0 40px 8px; padding: 26px 34px 28px; border-radius: 16px; background: var(--yellow); box-shadow: 8px 8px 0 var(--ink); rotate: -1.5deg; font-size: 32px; font-weight: 700; line-height: 44px; }
+.quote .kicker { display: block; margin-bottom: 6px; font-size: 18px; font-weight: 800; letter-spacing: 0.16em; line-height: 26px; text-transform: uppercase; }
+
+/* CTA */
+.cta h2 { margin-top: 28px; font-size: 100px; font-weight: 900; letter-spacing: -0.035em; line-height: 100px; text-wrap: balance; }
+.steps { flex: 1; margin: 40px 0 44px; display: flex; flex-direction: column; border-bottom: 2px solid var(--rule); }
+.steps li { flex: 1; display: flex; align-items: center; gap: 28px; padding: 20px 0; border-top: 2px solid var(--rule); }
+.steps li:first-child { border-top: 4px solid var(--ink); }
+.steps .n { width: 76px; flex: none; font-size: 104px; font-weight: 900; letter-spacing: -0.04em; line-height: 104px; color: var(--yellow); -webkit-text-stroke: 7px var(--ink); paint-order: stroke fill; }
+.steps b { display: block; font-size: 38px; font-weight: 800; letter-spacing: -0.01em; line-height: 48px; }
+.steps p { margin-top: 4px; font-size: 30px; font-weight: 500; line-height: 42px; color: var(--muted); }
+.cta .sticker { align-self: flex-end; margin: 0 12px 44px 0; rotate: 2deg; }
+.cta .asterisk { left: 72px; bottom: 196px; }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="75">
+  <svg class="squiggle" data-decor width="220" height="80" viewBox="0 0 220 80" fill="none" stroke="#FF5A4E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40Q25 4 42 40T76 40T110 40T144 40T178 40T212 40"/></svg>
+  <div class="masthead">{{PUBLICATION_NAME}}</div>
+
+  <div class="sticker" data-decor>5 mistakes · 5 fixes</div>
+  <h1>5 carousel mistakes that lose readers by slide 2</h1>
+  <p class="sub">Each one has a fix you can apply before you publish.</p>
+
+  <div class="toc">
+    <svg class="asterisk" data-decor width="72" height="72" viewBox="0 0 60 60" fill="none" stroke="#FFD43B" stroke-width="7" stroke-linecap="round"><path d="M30 6v48M6 30h48M13 13l34 34M47 13L13 47"/></svg>
+    <div class="toc-label">Inside this deck</div>
+    <ol>
+      <li><span class="num">01</span>Two ideas fighting on one slide</li>
+      <li><span class="num">02</span>Body text too small for a phone</li>
+      <li><span class="num">03</span>Slides that end without a next step</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="dots" style="--p:{{PAGE_RAW}};--t:{{TOTAL_RAW}}"><span></span><span class="on"></span><span></span></div>
+  </div>
+</section>
+
+<!-- ============ CONTENT (repeat 4 to 8 times) ============ -->
+<section class="slide content" data-max-words="105">
+  <svg class="squiggle" data-decor width="220" height="80" viewBox="0 0 220 80" fill="none" stroke="#FF5A4E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40Q25 4 42 40T76 40T110 40T144 40T178 40T212 40"/></svg>
+  <div class="masthead">{{PUBLICATION_NAME}}</div>
+
+  <div class="label"><span class="num">01</span>Mistake 01 of 05 · Density</div>
+  <h2>Two ideas fighting on one slide</h2>
+
+  <div class="body">
+    <p>A reader on a phone sees one slide at a time. When that slide carries two ideas, neither one lands and the next swipe feels like work.</p>
+    <p>Give every idea its own slide, even if the deck gets longer. One clear point per slide is easier to finish.</p>
+  </div>
+
+  <div class="quote"><span class="kicker">Try today</span>Read your densest slide out loud. If you say "and also", split it in two.</div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="dots" style="--p:{{PAGE_RAW}};--t:{{TOTAL_RAW}}"><span></span><span class="on"></span><span></span></div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="90">
+  <svg class="squiggle" data-decor width="220" height="80" viewBox="0 0 220 80" fill="none" stroke="#FF5A4E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40Q25 4 42 40T76 40T110 40T144 40T178 40T212 40"/></svg>
+  <svg class="asterisk" data-decor width="84" height="84" viewBox="0 0 60 60" fill="none" stroke="#FFD43B" stroke-width="7" stroke-linecap="round"><path d="M30 6v48M6 30h48M13 13l34 34M47 13L13 47"/></svg>
+  <div class="masthead">{{PUBLICATION_NAME}}</div>
+
+  <div class="label"><span class="num">→</span>Your turn</div>
+  <h2>Fix one slide today</h2>
+
+  <ol class="steps">
+    <li><span class="n">1</span><div><b>Split the densest slide</b><p>Find the slide with two ideas and give each one its own page.</p></div></li>
+    <li><span class="n">2</span><div><b>Check it on your phone</b><p>If you squint at the body text, raise the size and cut words.</p></div></li>
+    <li><span class="n">3</span><div><b>Add the next step</b><p>End each slide with one thing the reader can do.</p></div></li>
+  </ol>
+
+  <div class="sticker" data-decor>Follow for the next teardown</div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b>{{POSITIONING_TEXT}}</div>
+    </div>
+    <div class="dots" style="--p:{{PAGE_RAW}};--t:{{TOTAL_RAW}}"><span></span><span class="on"></span><span></span></div>
+  </div>
+</section>

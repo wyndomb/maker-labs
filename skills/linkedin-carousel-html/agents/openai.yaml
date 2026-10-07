@@ -1,0 +1,4 @@
+interface:
+  display_name: "LinkedIn Carousel"
+  short_description: "Turn your source material into carousel slides"
+  default_prompt: "Use $linkedin-carousel-html to turn my notes into a LinkedIn carousel."

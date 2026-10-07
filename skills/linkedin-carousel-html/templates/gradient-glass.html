@@ -1,0 +1,244 @@
+<!--
+TEMPLATE: gradient-glass
+
+WHEN TO CHOOSE
+  Tool announcements, feature posts, product reviews, technical workflow breakdowns. Anything about software or models.
+  Dark navy to violet ground with frosted glass cards. Stops the scroll in a feed full of light slides.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY. Replace every word of it, including the "/ carousel craft" topic label,
+  the stat chips, the "Slide 02" references and the pink "+ 2 more" tag.
+  Every slide starts with the two .glow divs. Keep them first so the glass has something to blur.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words)
+  hook     100 words in total. Pill up to 3 words, headline up to 12 words (3 or 4 lines), sub up to 14 words
+           (1 or 2 lines), three stat chips (a short figure plus up to 6 words), exactly three "inside"
+           rows of up to 8 words each (one line, about 40 characters), each with its slide reference.
+           Stat chips hold figures from the user's source, or plain counts of what is in the deck. Never an
+           invented statistic. If you do not have three real figures, delete the whole .stats row. The slide
+           still fills without it.
+  content  110 words in total. Pill ("Mistake 01 / 05") plus a one word label, headline up to 9 words
+           (2 or 3 lines), a hairline, body 35 to 60 words in 1 or 2 paragraphs, one action chip: kicker ("Try today",
+           "Steal this", "Watch out for") plus up to 20 words (2 lines).
+  cta      105 words in total. Pill up to 3 words, headline up to 8 words (1 or 2 lines), sub up to 16 words
+           (1 or 2 lines), exactly three steps (bold label up to 6 words, explanation up to 16 words on
+           2 lines), sign-off with the author and one button of up to 4 words.
+
+DECORATION RULES
+  Two glow blobs per slide, cyan top right and pink bottom left. Never a third.
+  Cyan is for emphasis: one .accent word in the headline, the pill, numerals, kickers, the page number, the button.
+  Hot pink appears in type only in the "+ N more" tag on the hook. Write the true count of points the three
+  rows leave out, or delete the tag.
+  Glow budget: the header dot, the avatar halo and the two blobs. Nothing else glows.
+  Never put a .chip inside a .glass card. Meta labels are JetBrains Mono, everything else is Inter.
+
+PER-CAROUSEL OVERRIDES
+  "Less neon": add class "quiet" to each slide. It drops the header dot glow and the avatar halo.
+  "Calmer gradient": add class "calm" to each slide for a plain vertical navy ground.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --ink: #FFFFFF; --soft: rgba(255,255,255,0.8); --muted: rgba(255,255,255,0.62); --hair: rgba(255,255,255,0.16);
+  --cyan: #00E5FF; --pink: #FF3D9A; --navy: #0A0E1F;
+  --avatar-fill: var(--navy); --avatar-ink: var(--cyan);
+  background: linear-gradient(155deg, #0A0E1F 0%, #1B1240 45%, #3A1259 75%, #4A1A3A 100%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 72px;
+  justify-content: space-between;
+}
+.slide.calm { background: linear-gradient(180deg, #0A0E1F 0%, #1B1240 100%); }
+.slide > * { position: relative; z-index: 1; }
+.mono, .tag, .pill, .rule, .n, .ref, .kicker, .page, .author span, .signoff span { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Glow blobs: the first two children of every slide */
+.slide > .glow { position: absolute; z-index: 0; border-radius: 999px; }
+.glow.cyan { top: -120px; right: -100px; width: 480px; height: 480px; background: radial-gradient(circle, #00E5FF 0%, rgba(0,229,255,0) 70%); opacity: 0.35; filter: blur(40px); }
+.glow.pink { bottom: -80px; left: -120px; width: 420px; height: 420px; background: radial-gradient(circle, #FF3D9A 0%, rgba(255,61,154,0) 70%); opacity: 0.4; filter: blur(50px); }
+
+/* Glass surfaces */
+.glass { display: flex; flex-direction: column; padding: 40px; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.18); border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
+.chip { background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 18px; -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+.accent { color: var(--cyan); }
+
+/* Header (all slides) */
+.header { display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: 18px; line-height: 24px; }
+.brand { display: flex; align-items: center; gap: 14px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+.dot { width: 12px; height: 12px; flex: none; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+.tag { flex: none; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* Eyebrow row inside the glass card */
+.eyebrow { display: flex; align-items: center; gap: 16px; font-size: 22px; font-weight: 500; color: var(--muted); }
+.pill { padding: 9px 16px; border: 1.5px solid rgba(0,229,255,0.5); border-radius: 999px; background: rgba(0,229,255,0.08); font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
+.sub { margin-top: 22px; font-size: 30px; font-weight: 400; line-height: 42px; color: var(--soft); }
+
+/* Footer (all slides) */
+.footer { margin-top: 26px; padding-top: 24px; border-top: 1.5px solid var(--hair); display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: 18px; font-weight: 500; color: var(--muted); }
+.author { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.avatar { border: 2px solid rgba(0,229,255,0.6); box-shadow: 0 0 16px rgba(0,229,255,0.3); font-weight: 700; }
+.author .avatar { width: 58px; height: 58px; font-size: 24px; }
+.author b { display: block; font-size: 22px; font-weight: 700; line-height: 28px; color: var(--ink); }
+.author span { display: block; margin-top: 2px; font-size: 18px; line-height: 24px; }
+.page { flex: none; font-size: 20px; font-weight: 600; letter-spacing: 0.2em; color: var(--cyan); }
+.quiet .dot, .quiet .avatar { box-shadow: none; }
+
+/* Hook */
+.hook .glass { margin-top: 26px; }
+.hook h1 { margin-top: 24px; font-size: 80px; font-weight: 700; letter-spacing: -0.035em; line-height: 86px; }
+.stats { margin-top: 24px; display: flex; gap: 16px; }
+.stat { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; }
+.stat b { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 48px; }
+.stat span { font-size: 22px; font-weight: 500; line-height: 28px; color: var(--muted); }
+.inside { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; }
+.rule { display: flex; align-items: center; gap: 18px; margin-bottom: 4px; font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.rule i { flex: 1; height: 1.5px; background: rgba(255,255,255,0.18); }
+.rule em { font-style: normal; letter-spacing: 0.18em; color: var(--pink); }
+.row { display: flex; align-items: center; gap: 20px; padding: 15px 24px; }
+.n { flex: none; font-weight: 700; letter-spacing: 0.1em; color: var(--cyan); }
+.row .n { width: 36px; font-size: 20px; }
+.row .t { flex: 1; font-size: 28px; font-weight: 600; line-height: 36px; }
+.ref { flex: none; font-size: 18px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* Content */
+.content .glass { flex: 1; margin-top: 30px; justify-content: space-evenly; gap: 22px; }
+.hair { height: 1.5px; background: var(--hair); }
+.content h2 { margin-top: 24px; font-size: 64px; font-weight: 700; letter-spacing: -0.03em; line-height: 72px; }
+.body { font-size: 34px; font-weight: 400; line-height: 52px; color: rgba(255,255,255,0.88); }
+.body p + p { margin-top: 20px; }
+.action { margin-top: 22px; display: flex; align-items: flex-start; gap: 20px; padding: 24px 28px; }
+.action svg { margin-top: 2px; }
+.kicker { font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); }
+.action p { margin-top: 6px; font-size: 28px; font-weight: 500; line-height: 40px; }
+
+/* CTA */
+.cta .glass { margin-top: 26px; }
+.cta h2 { margin-top: 24px; font-size: 80px; font-weight: 700; letter-spacing: -0.035em; line-height: 88px; }
+.steps { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+.step { display: flex; align-items: flex-start; gap: 20px; padding: 22px 26px; }
+.step .n { width: 40px; font-size: 22px; line-height: 42px; }
+.step b { display: block; font-size: 32px; font-weight: 700; line-height: 42px; }
+.step p { margin-top: 2px; font-size: 26px; font-weight: 400; line-height: 36px; color: var(--soft); }
+.signoff { margin-top: 26px; display: flex; align-items: center; gap: 18px; }
+.signoff .avatar { width: 76px; height: 76px; font-size: 32px; }
+.signoff .who { flex: 1; min-width: 0; }
+.signoff b { display: block; font-size: 28px; font-weight: 700; line-height: 36px; }
+.signoff span { display: block; font-size: 18px; font-weight: 500; line-height: 26px; color: var(--muted); }
+.button { flex: none; display: flex; align-items: center; gap: 12px; padding: 18px 28px; border-radius: 999px; background: var(--cyan); color: var(--navy); font-size: 22px; font-weight: 700; line-height: 28px; letter-spacing: 0.1em; text-transform: uppercase; }
+.cta .footer { margin-top: 24px; }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="100">
+  <div class="glow cyan" data-decor></div>
+  <div class="glow pink" data-decor></div>
+
+  <div class="header">
+    <div class="brand"><i class="dot"></i>{{PUBLICATION_NAME_UPPER}}</div>
+    <div class="tag">/ carousel craft</div>
+  </div>
+
+  <div class="glass">
+    <div class="eyebrow"><span class="pill">5 mistakes</span>{{TOTAL_RAW}} slides</div>
+    <h1>5 carousel mistakes that <span class="accent">lose</span> readers by slide 2</h1>
+    <p class="sub">Each one has a fix you can apply before you publish.</p>
+  </div>
+
+  <div class="stats">
+    <div class="chip stat"><b>5</b><span>mistakes and fixes</span></div>
+    <div class="chip stat"><b>4:5</b><span>portrait slide ratio</span></div>
+    <div class="chip stat"><b class="accent">6 to 10</b><span>slides per deck</span></div>
+  </div>
+
+  <div class="inside">
+    <div class="rule"><span>What's inside</span><i></i><em>+ 2 more</em></div>
+    <div class="chip row"><span class="n">01</span><span class="t">Two ideas fighting on one slide</span><span class="ref">Slide 02</span></div>
+    <div class="chip row"><span class="n">02</span><span class="t">Body text too small for a phone</span><span class="ref">Slide 03</span></div>
+    <div class="chip row"><span class="n">03</span><span class="t">Slides that end without a next step</span><span class="ref">Slide 04</span></div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b><span>{{POSITIONING_TEXT}}</span></div>
+    </div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CONTENT (repeat 4 to 8 times) ============ -->
+<section class="slide content" data-max-words="110">
+  <div class="glow cyan" data-decor></div>
+  <div class="glow pink" data-decor></div>
+
+  <div class="header">
+    <div class="brand"><i class="dot"></i>{{PUBLICATION_NAME_UPPER}}</div>
+    <div class="tag">/ carousel craft</div>
+  </div>
+
+  <div class="glass">
+    <div>
+      <div class="eyebrow"><span class="pill">Mistake 01 / 05</span>Density</div>
+      <h2>Two ideas fighting on one <span class="accent">slide</span></h2>
+    </div>
+    <i class="hair"></i>
+    <div class="body">
+      <p>A reader on a phone sees one slide at a time. When that slide carries two ideas, neither one lands and the next swipe feels like work.</p>
+      <p>Give every idea its own slide, even if the deck gets longer. Ten clear slides are easier to finish than six crowded ones.</p>
+    </div>
+  </div>
+
+  <div class="chip action">
+    <svg width="34" height="34" viewBox="0 0 36 36" fill="none" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h26M20 7l11 11-11 11"/></svg>
+    <div>
+      <div class="kicker">Try today</div>
+      <p>Read your densest slide out loud. If you say "and also", split it in two.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b><span>{{POSITIONING_TEXT}}</span></div>
+    </div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="105">
+  <div class="glow cyan" data-decor></div>
+  <div class="glow pink" data-decor></div>
+
+  <div class="header">
+    <div class="brand"><i class="dot"></i>{{PUBLICATION_NAME_UPPER}}</div>
+    <div class="tag">/ carousel craft</div>
+  </div>
+
+  <div class="glass">
+    <div class="eyebrow"><span class="pill">Your turn</span></div>
+    <h2>Fix one slide <span class="accent">today</span></h2>
+    <p class="sub">Open your next deck and start with the slide you like least.</p>
+  </div>
+
+  <div class="steps">
+    <div class="chip step"><span class="n">01</span><div><b>Split the densest slide</b><p>Find the slide with two ideas and give each one its own page.</p></div></div>
+    <div class="chip step"><span class="n">02</span><div><b>Check it on your phone</b><p>If you squint at the body text, raise the size and cut words.</p></div></div>
+    <div class="chip step"><span class="n">03</span><div><b>Add the next step</b><p>End each slide with one thing the reader can do.</p></div></div>
+  </div>
+
+  <div class="signoff">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b><span>{{POSITIONING_TEXT}}</span></div>
+    <div class="button">Follow for more
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#0A0E1F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h20M15 5l9 9-9 9"/></svg>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>{{PUBLICATION_NAME}}</div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>

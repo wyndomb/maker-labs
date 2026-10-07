@@ -1,0 +1,36 @@
+{
+  "skill_name": "anti-slop",
+  "evals": [
+    {
+      "name": "no invented specifics",
+      "prompt": "Lightly edit: The integration improved efficiency. The launch marks a pivotal moment for the company.",
+      "checks": [
+        "No invented time savings, mechanisms, product history, or source.",
+        "Flag missing detail where needed."
+      ]
+    },
+    {
+      "name": "technical voice",
+      "prompt": "Edit lightly: We used robust regression. I think the estimate is shaky, honestly. The report shows a wide interval.",
+      "checks": [
+        "Keep robust regression and natural inanimate subject.",
+        "Preserve meaningful uncertainty; no forced rewriting."
+      ]
+    },
+    {
+      "name": "flag only",
+      "prompt": "Flag without rewriting: Here is the thing: our transformative platform empowers every team.",
+      "checks": [
+        "Quote original accurately.",
+        "No rewritten draft, score, or authorship claim."
+      ]
+    },
+    {
+      "name": "clean draft",
+      "prompt": "Flag without rewriting: I sent the invoice on Tuesday. Please confirm it arrived.",
+      "checks": [
+        "No manufactured issue."
+      ]
+    }
+  ]
+}

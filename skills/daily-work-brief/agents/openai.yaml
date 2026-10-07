@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Work Brief"
+  short_description: "Find today's work priorities and prepare for meetings"
+  default_prompt: "Use $daily-work-brief to prepare me for today: recommend where to start, flag work messages needing attention, and help me prepare for my meetings."

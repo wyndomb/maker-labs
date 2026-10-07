@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brain Dump to Content"
+  short_description: "Find angles in messy notes and build a writing brief"
+  default_prompt: "Use $brain-dump-to-content to find useful angles in my notes, then develop the angle I choose into a writing brief."

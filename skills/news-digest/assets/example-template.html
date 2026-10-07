@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root { color-scheme: light; --ink: #202b35; --muted: #52616b; --line: #ccd5d8; --accent: #17665b; }
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: #f5f5f0; line-height: 1.6; }
+    main { max-width: 1120px; margin: auto; padding: 40px 24px; }
+    header { border-bottom: 3px solid var(--accent); padding-bottom: 24px; margin-bottom: 24px; }
+    .eyebrow, .tag { color: var(--accent); font-weight: 650; }
+    h1 { font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1.12; margin: 10px 0 18px; }
+    h2 { font-size: 1.35rem; line-height: 1.3; margin: 10px 0; }
+    p { margin: 0 0 12px; }
+    .meta, .date, footer { color: var(--muted); font-size: .92rem; }
+    .takeaways { background: #e6efea; border: 1px solid #b6ccc0; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+    .takeaways h2 { margin-top: 0; }
+    .takeaways ul { margin-bottom: 0; padding-left: 22px; }
+    .stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .story { min-width: 0; background: white; border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+    .story p:last-child { margin-bottom: 0; }
+    .tag { font-size: .85rem; }
+    .meaning { border-top: 1px solid var(--line); padding-top: 14px; }
+    a { color: #17587d; text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #b25800; outline-offset: 4px; border-radius: 2px; }
+    h1, h2, p, li, a { overflow-wrap: anywhere; }
+    .coverage { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 20px; }
+    footer { margin-top: 24px; }
+    @media (max-width: 640px) { main { padding: 24px 16px; } .stories { grid-template-columns: 1fr; } .story { padding: 20px; } }
+    @media print { body { background: white; } main { padding: 0; } .stories { display: block; } .story { margin-bottom: 16px; break-inside: avoid; } a { color: inherit; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">News Digest</p>
+      <h1>{{TOPIC}}</h1>
+      <p class="meta">Coverage: {{COVERAGE_WINDOW}}</p>
+      <p class="meta">{{STORY_COUNT}} stories · {{EVIDENCE_LABEL}}</p>
+    </header>
+    {{TAKEAWAYS_SECTION}}
+    <section class="stories" aria-label="News stories">
+      {{STORY_CARDS_OR_EMPTY_STATE}}
+    </section>
+    <section class="coverage" aria-label="Coverage notes">
+      {{COVERAGE_NOTES}}
+    </section>
+    <footer>Research completed: {{RESEARCH_TIMESTAMP}}</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "News Digest"
+  short_description: "Source-linked briefings on any topic"
+  default_prompt: "Use $news-digest to brief me on recent developments in my chosen topic, with source links and practical significance."

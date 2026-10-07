@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PLAN_TITLE}}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f6f7f2;
+      color: #1c1d1a;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 48px; }
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 20px;
+      border-bottom: 2px solid #1c1d1a;
+      padding-bottom: 22px;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2rem, 4vw, 4.1rem); line-height: 1; margin-bottom: 12px; }
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      border-bottom: 1px solid #d8ddcf;
+      padding-bottom: 9px;
+      margin-bottom: 12px;
+    }
+    .meta, .card {
+      background: #fffdf7;
+      border: 1px solid #d8ddcf;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .meta div { margin-bottom: 10px; }
+    .label {
+      display: block;
+      color: #61675b;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: 3px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-bottom: 16px; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    ul, ol { padding-left: 1.25rem; margin-bottom: 0; }
+    li + li { margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { border: 1px solid #d8ddcf; padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #e9eee2; }
+    .recommendation { border-top: 4px solid #246b5b; background: #e1efe7; }
+    .risk { border-top: 4px solid #b9472f; }
+    .criteria { border-top: 4px solid #2d5b88; }
+    .approval { border: 2px solid #1c1d1a; background: #ffffff; }
+    .score {
+      display: inline-block;
+      min-width: 34px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e9eee2;
+      text-align: center;
+      font-weight: 700;
+    }
+    @media (max-width: 860px) {
+      header, .grid { display: block; }
+      .meta, .card { margin-bottom: 14px; }
+    }
+
+    .table-hint { display: none; font-size: 0.85rem; }
+    @media (max-width: 600px) { .table-hint { display: block; } }
+    .table-scroll { overflow-x: auto; max-width: 100%; }
+    .table-scroll table { min-width: 520px; }
+    main > section.card { margin-bottom: 16px; }
+    .card, .meta, td { overflow-wrap: anywhere; min-width: 0; }
+    a { color: #245781; text-decoration: underline; }
+    @media print {
+      body { background: white; }
+      .table-hint { display: none; }
+      main { max-width: none; padding: 0; }
+      header, .grid, .workflow, .section-map, .path-grid { display: block; }
+      .card, .meta { margin-bottom: 12px; break-inside: avoid; }
+      .table-scroll { overflow: visible; }
+      table { font-size: 10pt; }
+      .table-scroll table { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <span class="label">Decision board</span>
+        <h1>{{PLAN_TITLE}}</h1>
+        <p>{{DECISION_SUMMARY}}</p>
+      </div>
+      <aside class="meta">
+        <div><span class="label">Created</span>{{DATE}}</div>
+        <div><span class="label">Decision type</span>{{DECISION_TYPE}}</div>
+        <div><span class="label">Reversibility</span>{{REVERSIBILITY}}</div>
+      <div><span class="label">Status</span>{{PLAN_STATUS}}</div>
+        <div><span class="label">Execution</span>{{EXECUTION_STATUS}}</div>
+        <div>{{AUTHORIZATION_NOTE}}</div>
+      </aside>
+    </header>
+
+    <section class="grid">
+      <div class="card span-8 recommendation">
+        <h2>Recommended Choice</h2>
+        <p>{{RECOMMENDED_CHOICE}}</p>
+      </div>
+      <div class="card span-4 risk">
+        <h2>What Would Change This</h2>
+        <ul>
+          {{CHANGE_CONDITIONS}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card span-12">
+        <h2>Options Matrix</h2>
+        <p class="table-hint">Scroll sideways to see all columns.</p>
+        <div class="table-scroll" role="region" aria-label="Plan comparison table" tabindex="0"><table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Fit</th>
+              <th>Effort</th>
+              <th>Risk</th>
+              <th>Reversibility</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{OPTIONS_MATRIX}}
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card span-6 criteria">
+        <h2>Decision Criteria</h2>
+        <p class="table-hint">Scroll sideways to see all columns.</p>
+        <div class="table-scroll" role="region" aria-label="Plan comparison table" tabindex="0"><table>
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th>Priority and basis</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{CRITERIA_ROWS}}
+          </tbody>
+        </table></div>
+      </div>
+      <div class="card span-6">
+        <h2>Tradeoffs</h2>
+        <ul>
+          {{TRADEOFFS}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card span-4">
+        <h2>Next Action</h2>
+        <p>{{NEXT_ACTION}}</p>
+      </div>
+      <div class="card span-4">
+        <h2>Human Decisions</h2>
+        <ol>
+          {{HUMAN_DECISIONS}}
+        </ol>
+      </div>
+      <div class="card span-4">
+        <h2>Do Not Do Yet</h2>
+        <ul>
+          {{DO_NOT_DO}}
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="grid">
+      <div class="card span-6"><h2>Goal</h2><p>{{GOAL}}</p></div>
+      <div class="card span-6"><h2>What I Think You Want</h2><p>{{USER_INTENT}}</p></div>
+    </section>
+    <section class="grid">
+      <div class="card span-6"><h2>Assumptions And Unknowns</h2><ul>{{ASSUMPTIONS}}</ul></div>
+      <div class="card span-6"><h2>Success Checks</h2><ol>{{SUCCESS_CHECKS}}</ol></div>
+    </section>
+    <section class="card"><h2>Workflow Map</h2><ol>{{WORKFLOW_STEPS}}</ol></section>
+    <section class="grid">
+      <div class="card span-6"><h2>Risks And Failure Modes</h2><ul>{{RISKS}}</ul></div>
+      <div class="card span-6"><h2>Inputs, Sources And Tools</h2><ul>{{SOURCES_TOOLS}}</ul></div>
+    </section>
+
+    <section class="card approval">
+      <h2>Approval Box</h2>
+      <p>{{APPROVAL_PROMPT}}</p>
+      <p>{{APPROVAL_NEXT_STEP}}</p>
+    </section>
+  </main>
+</body>
+</html>

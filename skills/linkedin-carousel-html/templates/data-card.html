@@ -1,0 +1,227 @@
+<!--
+TEMPLATE: data-card
+
+WHEN TO CHOOSE
+  The source material contains real numbers and the hook IS one of them: survey results, benchmarks,
+  before and after measurements, counts, prices, time saved, format specs.
+  White ground, one very large thin numeral, serif captions, a ruled stat row, mono labels. Reads as "we measured this".
+
+  EVERY NUMBER ON EVERY SLIDE MUST COME FROM THE USER'S SOURCE MATERIAL.
+  Never invent, round up, estimate or "illustrate" a figure to fill a slot. If the source has no real numbers,
+  or only one, this is the wrong template. Choose another one. Skip it for opinion, narrative or playful posts too.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY, including every number. Replace all of it.
+  Mix the two content variants freely. Use "compare" only when the source gives two numbers for the same thing.
+
+  HERO NUMERAL SIZE. Count the characters of the numeral itself (digits, colon, comma, point), not the unit:
+    1 or 2 characters   class="hero"         5    87 plus unit %
+    3 characters        class="hero mid"     4:5  120
+    4 or 5 characters   class="hero long"    1080  12.5k
+  Longer than 5 characters does not fit. Abbreviate the way the source would (12.5k) or pick another number.
+  The unit goes in <span class="unit">: one symbol or one short word (%, x, px, hrs, min). Leave it out when there is none.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words)
+  hook     eyebrow up to 6 words saying what the number measures. Hero numeral: the most important number in the source.
+           caption 7 to 11 words (2 lines) with one <em> word. It continues the numeral, so it starts lower case.
+           subcaption up to 18 words (2 lines).
+           stat row: three stats (two also works). Each is a number of up to 5 characters, an optional unit
+           (one symbol or one short word) and a label of up to 3 words.
+  content  eyebrow up to 6 words, hero numeral, caption 7 to 13 words (2 lines) with one <em> word,
+           body 45 to 60 words in 1 or 2 paragraphs with one <strong> span.
+           A shorter body leaves the slide half empty and the checker will say so.
+  content compare
+           eyebrow, then two cells side by side. Each cell: one-word kicker ("Before", "After"), a numeral and a
+           label of 5 to 9 words. Numeral plus unit is 1 or 2 characters (class "hero") or 3 (class "hero mid"),
+           and the unit is one symbol: 2, 12, 5x, 87%, 4:5. Longer numbers need two single-stat slides.
+           Then caption up to 10 words (1 or 2 lines) and body 35 to 45 words.
+  cta      eyebrow, headline up to 6 words (1 or 2 lines) with one <em> word, subcaption up to 18 words,
+           exactly three numbered steps (bold label up to 5 words, explanation up to 14 words).
+
+DECORATION RULES
+  Red appears only in the header square, the eyebrow, units and the avatar. Nothing else is red.
+  Hero numerals stay thin (weight 100). Never bold them and never colour them.
+  One <em> word per caption or headline, one <strong> span per body.
+  No icons, charts, arrows or boxes. The hairlines and the white space do the work.
+
+PER-CAROUSEL OVERRIDES
+  "Only two supporting stats": delete the third .stat. The row rebalances itself.
+  "Plainer": drop the <em> in captions and headlines. Keep the eyebrow.
+  "Number has no unit": delete the .unit span. Never add a unit the source does not use.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;500;600;700&family=JetBrains+Mono:wght@500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --ink: #0A0A0A; --ink2: #3A3A3A; --muted: #6B6B6B; --hair: #CFCFCF; --red: #C8102E;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --avatar-fill: var(--red); --avatar-ink: #ffffff;
+  --hero: 440px; --hero-mid: 440px; --hero-long: 336px;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 56px 64px;
+}
+
+/* Header strip (all slides) */
+.strip { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--ink); font-family: var(--mono); text-transform: uppercase; }
+.pub { display: flex; align-items: center; gap: 14px; font-size: 18px; font-weight: 600; line-height: 26px; letter-spacing: 0.16em; }
+.pub::before { content: ""; flex: none; width: 14px; height: 14px; background: var(--red); }
+.sec { font-size: 17px; font-weight: 500; line-height: 26px; letter-spacing: 0.12em; color: var(--muted); text-align: right; }
+
+/* Eyebrow: what the number measures */
+.eyebrow { flex: none; margin-top: 46px; font-family: var(--mono); font-size: 20px; font-weight: 600; line-height: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); }
+
+/* Hero numeral. Size classes: none (1 or 2 characters), mid (3), long (4 or 5). */
+.hero { flex: none; margin-top: 20px; margin-left: -0.035em; font-size: var(--hero); font-weight: 100; line-height: 0.85; letter-spacing: -0.06em; white-space: nowrap; }
+.hero.mid { font-size: var(--hero-mid); }
+.hero.long { font-size: var(--hero-long); }
+.unit { position: relative; top: -0.98em; margin-left: 0.14em; font-size: 0.42em; font-weight: 200; letter-spacing: -0.03em; color: var(--red); }
+
+/* Caption block */
+.caption { flex: none; margin-top: 24px; font-family: var(--serif); font-size: 58px; font-weight: 400; line-height: 68px; letter-spacing: -0.01em; }
+.caption em, .headline em { font-style: italic; }
+.subcap { flex: none; margin-top: 16px; max-width: 900px; font-family: var(--serif); font-size: 32px; font-style: italic; font-weight: 400; line-height: 44px; color: var(--ink2); }
+
+/* Stat row (hook) */
+.stats { flex: none; margin-block: auto; padding-top: 32px; border-top: 1px solid var(--ink); display: flex; }
+.stat { flex: 1; min-width: 0; padding: 0 28px; border-left: 1px solid var(--hair); }
+.stat:first-child { padding-left: 0; border-left: 0; }
+.stat .n { font-size: 76px; font-weight: 200; line-height: 76px; letter-spacing: -0.03em; white-space: nowrap; }
+.stat .n span { margin-left: 8px; font-size: 30px; font-weight: 500; line-height: 1; letter-spacing: 0; color: var(--red); }
+.stat .l { margin-top: 16px; font-family: var(--mono); font-size: 22px; font-weight: 500; line-height: 30px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+/* Footer (all slides) */
+.footer { flex: none; display: flex; align-items: center; gap: 18px; }
+.footer .avatar { width: 64px; height: 64px; font-size: 28px; }
+.who { flex: 1; min-width: 0; font-size: 18px; font-weight: 500; line-height: 26px; color: var(--muted); }
+.who b { display: block; font-size: 22px; font-weight: 600; line-height: 30px; color: var(--ink); }
+.page { flex: none; font-family: var(--mono); font-size: 18px; font-weight: 500; letter-spacing: 0.12em; color: var(--muted); white-space: nowrap; }
+
+/* Hook */
+.hook { --hero: 560px; --hero-mid: 470px; }
+.hook .subcap { margin-bottom: 36px; }
+.hook .footer { margin-top: 36px; }
+
+/* Content */
+.body { flex: none; margin-block: auto; padding-top: 32px; border-top: 1px solid var(--ink); font-family: var(--serif); font-size: 34px; font-weight: 400; line-height: 52px; }
+.body p + p { margin-top: 18px; }
+.body strong { font-weight: 600; }
+.content .caption { margin-bottom: 36px; }
+.content .footer { margin-top: 36px; }
+
+/* Content, compare variant */
+.compare { --hero: 340px; --hero-mid: 270px; --hero-long: 200px; }
+.compare .caption { margin-top: 40px; }
+.versus { flex: none; margin-top: 30px; display: flex; }
+.cell { flex: 1; min-width: 0; padding-left: 48px; border-left: 1px solid var(--hair); }
+.cell:first-child { padding-left: 0; padding-right: 32px; border-left: 0; }
+.cell .k { font-family: var(--mono); font-size: 18px; font-weight: 500; line-height: 26px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.cell .hero { margin-top: 14px; }
+.cell .vl { margin-top: 16px; max-width: 400px; font-family: var(--serif); font-size: 32px; line-height: 44px; color: var(--ink2); }
+
+/* CTA */
+.headline { flex: none; margin-top: 26px; font-family: var(--serif); font-size: 92px; font-weight: 400; line-height: 98px; letter-spacing: -0.02em; }
+.steps { flex: 1; margin-top: 36px; margin-bottom: 32px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; }
+.step { flex: 1; display: flex; align-items: center; gap: 36px; padding: 16px 0; border-bottom: 1px solid var(--hair); }
+.step:last-child { border-bottom: 0; }
+.step .n { flex: none; width: 110px; font-size: 84px; font-weight: 200; line-height: 84px; letter-spacing: -0.04em; }
+.step b { display: block; font-size: 36px; font-weight: 600; line-height: 46px; }
+.step p { margin-top: 6px; font-family: var(--serif); font-size: 30px; line-height: 44px; color: var(--ink2); }
+.cta .footer { margin-top: auto; }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="80">
+  <div class="strip"><span class="pub">{{PUBLICATION_NAME_UPPER}}</span><span class="sec">Carousel teardown</span></div>
+
+  <div class="eyebrow">Count · mistakes in this deck</div>
+  <div class="hero">5</div>
+  <h1 class="caption">carousel mistakes that <em>lose</em> readers by slide 2.</h1>
+  <p class="subcap">Each one has a fix you can apply before you publish.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">1<span>idea</span></div><div class="l">Per slide</div></div>
+    <div class="stat"><div class="n">4:5</div><div class="l">Portrait frame</div></div>
+    <div class="stat"><div class="n">6-10<span>slides</span></div><div class="l">Per carousel</div></div>
+  </div>
+
+  <div class="footer">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{PUBLICATION_NAME}} · {{POSITIONING_TEXT}}</div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CONTENT, compare (two numbers for the same thing) ============ -->
+<section class="slide content compare" data-max-words="110">
+  <div class="strip"><span class="pub">{{PUBLICATION_NAME_UPPER}}</span><span class="sec">Carousel teardown</span></div>
+
+  <div class="eyebrow">Mistake 01 of 05 · density</div>
+  <div class="versus">
+    <div class="cell">
+      <div class="k">Before</div>
+      <div class="hero">2</div>
+      <p class="vl">ideas fighting on one slide, and neither lands.</p>
+    </div>
+    <div class="cell">
+      <div class="k">After</div>
+      <div class="hero">1</div>
+      <p class="vl">idea per slide, and the reader keeps up.</p>
+    </div>
+  </div>
+
+  <h2 class="caption">Give every idea its <em>own</em> slide.</h2>
+  <div class="body">
+    <p>A reader on a phone sees one slide at a time. When that slide carries two ideas, the next swipe feels like work. <strong>Read your densest slide out loud. If you say “and also”, split it in two.</strong></p>
+  </div>
+
+  <div class="footer">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{PUBLICATION_NAME}} · {{POSITIONING_TEXT}}</div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CONTENT, single stat (repeat 4 to 8 times across both variants) ============ -->
+<section class="slide content" data-max-words="115">
+  <div class="strip"><span class="pub">{{PUBLICATION_NAME_UPPER}}</span><span class="sec">Carousel teardown</span></div>
+
+  <div class="eyebrow">Mistake 02 of 05 · legibility</div>
+  <div class="hero long">1080<span class="unit">px</span></div>
+  <h2 class="caption">wide on your canvas, a few inches wide on a <em>phone</em>.</h2>
+
+  <div class="body">
+    <p>You build each slide at 1080 by 1350 pixels, usually on a large monitor. The reader meets it on a phone, where the whole slide is only a few inches across.</p>
+    <p>Text that felt comfortable on your screen shrinks with it. <strong>Check every slide at phone size before you publish.</strong></p>
+  </div>
+
+  <div class="footer">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{PUBLICATION_NAME}} · {{POSITIONING_TEXT}}</div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="115">
+  <div class="strip"><span class="pub">{{PUBLICATION_NAME_UPPER}}</span><span class="sec">Carousel teardown</span></div>
+
+  <div class="eyebrow">Your turn · 3 steps</div>
+  <h2 class="headline">Fix one slide <em>today</em>.</h2>
+  <p class="subcap">Open the deck you plan to post next and run these three checks on it.</p>
+
+  <div class="steps">
+    <div class="step"><div class="n">01</div><div><b>Split the densest slide</b><p>Find the slide with two ideas and give each one its own page.</p></div></div>
+    <div class="step"><div class="n">02</div><div><b>Check it on your phone</b><p>If you squint at the body text, raise the size and cut words.</p></div></div>
+    <div class="step"><div class="n">03</div><div><b>Add the next step</b><p>End each slide with one thing the reader can do.</p></div></div>
+  </div>
+
+  <div class="footer">
+    <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+    <div class="who"><b>{{AUTHOR_NAME}}</b>{{PUBLICATION_NAME}} · {{POSITIONING_TEXT}}</div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>

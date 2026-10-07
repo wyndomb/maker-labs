@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Review Panel"
+  short_description: "Choose focused reviewers and get concrete draft fixes"
+  default_prompt: "Use $draft-review-panel to review my draft with the most relevant reviewers and prioritize what I should change."

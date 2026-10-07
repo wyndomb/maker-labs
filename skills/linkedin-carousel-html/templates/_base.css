@@ -1,0 +1,113 @@
+/* Shared by every template. scripts/carousel.mjs inlines this into carousel.html.
+   Templates never redefine these rules; they style what goes inside a .slide. */
+
+@page { size: 1080px 1350px; margin: 0; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: #17171a;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 96px 24px 64px;
+}
+
+/* One slide = one 1080x1350 page. */
+.slide {
+  width: 1080px;
+  height: 1350px;
+  flex: none;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  zoom: var(--preview-scale, 1);
+  break-after: page;
+  break-inside: avoid;
+}
+.slide:last-child { break-after: auto; }
+
+.slide :where(h1, h2, h3, h4, p, ul, ol, li, figure, blockquote) { margin: 0; padding: 0; }
+.slide :where(ul, ol) { list-style: none; }
+.slide :where(svg) { display: block; flex: none; }
+
+/* Decoration that may bleed off the slide or sit behind text. The checker skips it. */
+[data-decor] { pointer-events: none; }
+
+/* Author avatar. Shows the saved photo, or the first letter of the name when there is none. */
+.avatar {
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-color: var(--avatar-fill, #1a1a1a);
+  background-image: var(--author-photo, none);
+  background-size: cover;
+  background-position: center;
+  color: var(--avatar-ink, #ffffff);
+  font-weight: 800;
+  line-height: 1;
+}
+.avatar::after { content: attr(data-initial); }
+html.has-photo .avatar::after { content: none; }
+
+/* Preview toolbar (browser only; added by the runtime script). */
+.toolbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: rgba(23, 23, 26, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f2f2f2;
+  font: 500 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.toolbar strong { font-weight: 700; }
+.toolbar span { color: #a8a8ad; }
+.toolbar button {
+  margin-left: auto;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #f2f2f2;
+  color: #17171a;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Export modes used by the script: one slide, the checker, the overview sheet. */
+html.mode-slide body, html.mode-check body { background: none; }
+html.mode-slide .deck, html.mode-check .deck { padding: 0; gap: 0; align-items: flex-start; }
+html.mode-slide .slide, html.mode-check .slide { zoom: 1; }
+
+html.mode-sheet .deck {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
+html.mode-sheet .slide { zoom: 0.35; }
+
+@media print {
+  body { background: none; }
+  .deck { display: block; padding: 0; }
+  .slide { zoom: 1 !important; }
+  .toolbar { display: none !important; }
+}

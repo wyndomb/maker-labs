@@ -1,0 +1,157 @@
+<!--
+TEMPLATE: brutalist-mono
+
+WHEN TO CHOOSE
+  Single-idea posts, manifestos, hot takes. Copy that wants to sound confident and blunt.
+  The near-black ground stands out in a feed full of white and cream slides.
+  Type only. If the content needs charts, icons or a friendly tone, pick another template.
+
+HOW TO USE THIS FILE
+  Copy the whole file to your output folder as deck.html. Keep the <link> and <style> blocks exactly as they are.
+  Replace the sample slides below with real slides built from the same markup. One hook, 4 to 8 content, one CTA.
+  All copy in this file is SAMPLE COPY. Replace every word of it.
+  Headlines wrap and balance on their own. Do not add <br>. Count the letters of the longest word before you write.
+
+SLIDE TYPES AND WORD BUDGETS (the checker enforces data-max-words)
+  hook     header label up to 5 words. Headline only, no body copy: 7 to 10 words that wrap to 4, 5 or 6 lines at 156px.
+           Longest word 11 characters ("automations" fits). An 11 letter word with several m or w needs class "long".
+  content  header label ("Mistake 01 of 05"), headline up to 7 words on 2 or 3 lines at 116px (longest word 14 characters),
+           body 35 to 55 words in 1 or 2 paragraphs, then one "key" line: the single thing to do, up to 18 words.
+           A headline that runs to 4 lines still fits when the body stays under 50 words.
+  cta      header label, headline up to 4 words on 2 or 3 lines at 132px (longest word 12 characters),
+           exactly three numbered rows: label up to 5 words on one line, value up to 14 words.
+  Every slide carries the same footer: avatar, author name, positioning line, page number.
+
+DECORATION RULES
+  Type only. No icons, arrows, images, gradients or shapes. The thin grey rules are the only lines.
+  One "hi" word (yellow) per headline. One "under" phrase (coral underline, 1 or 2 words) per headline,
+  ideally the closing words. Never both on the same word. Content slides usually skip "under".
+  Yellow and coral are the only accents. Body copy never takes an accent colour.
+  If a slide feels empty, lengthen the copy toward its budget. Do not add decoration.
+  The hook and cta set data-allow-gap="280" because the type block is centred between header and footer.
+  Content slides set data-allow-gap="240" for the space around a short body. A 5 or 6 line hook headline
+  and a body near its budget stay well inside both.
+
+PER-CAROUSEL OVERRIDES
+  "Long word": add class "long" to the hook h1 (124px) for a word of 12 to 14 characters. Up to 12 words then.
+  "Louder": add class "loud" to ONE slide per deck (usually the hook) for a yellow ground with ink type.
+            On a loud slide "hi" has no effect, so skip it and keep "under".
+  "More accent": allow a second "hi" word in the hook headline only.
+  "Calmer": use "under" on the hook only.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.slide {
+  --bg: #141414; --fg: #FFF8EE; --accent: #FFD43B; --coral: #FF5A4E; --meta: #999999; --copy: #CCCCCC; --line: #333333;
+  --avatar-fill: #141414; --avatar-ink: #FFD43B;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 72px;
+}
+.slide.loud {
+  --bg: #FFD43B; --fg: #141414; --accent: #141414; --meta: rgba(20, 20, 20, 0.66); --copy: #141414; --line: rgba(20, 20, 20, 0.28);
+  --avatar-ink: #FFD43B;
+}
+
+/* Header row (all slides) */
+.header { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; font-size: 18px; font-weight: 700; letter-spacing: 0.2em; line-height: 24px; text-transform: uppercase; color: var(--accent); }
+.header span { font-weight: 600; color: var(--meta); text-align: right; }
+
+/* Hero: the type stack, centred between header and footer */
+.hero { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: safe center; padding-block: 24px; }
+.hero h1, .hero h2 { font-weight: 900; letter-spacing: -0.05em; text-wrap: balance; }
+
+/* Headline accents */
+.hi { color: var(--accent); }
+.under { text-decoration: underline; text-decoration-color: var(--coral); text-decoration-thickness: 0.055em; text-underline-offset: 0.09em; text-decoration-skip-ink: none; }
+
+/* Footer (all slides) */
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-top: 24px; }
+.author { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.author .avatar { width: 64px; height: 64px; font-size: 26px; border: 2px solid var(--accent); }
+.author b { display: block; font-size: 22px; font-weight: 700; line-height: 30px; }
+.author p { font-size: 18px; font-weight: 500; line-height: 26px; color: var(--meta); }
+.page { flex: none; font-size: 18px; font-weight: 600; letter-spacing: 0.2em; font-variant-numeric: tabular-nums; color: var(--accent); }
+
+/* Hook */
+.hook h1 { font-size: 156px; line-height: 148px; }
+.hook h1.long { font-size: 124px; line-height: 120px; }
+
+/* Content: headline pinned to the top, body floats, key line pinned to the bottom */
+.content .hero { justify-content: flex-start; padding-block: 56px 20px; }
+.content h2 { font-size: 116px; line-height: 110px; padding-bottom: 48px; border-bottom: 2px solid var(--line); }
+.body { margin-block: auto; padding-block: 32px; font-size: 34px; font-weight: 500; line-height: 50px; color: var(--copy); }
+.body p { text-wrap: pretty; }
+.body p + p { margin-top: 24px; }
+.key { text-wrap: pretty; padding-top: 32px; border-top: 2px solid var(--line); font-size: 34px; font-weight: 700; line-height: 48px; }
+
+/* CTA */
+.cta h2 { font-size: 132px; line-height: 126px; }
+.steps { margin-top: 52px; border-bottom: 2px solid var(--line); }
+.step { display: flex; align-items: flex-start; gap: 36px; padding: 26px 0 28px; border-top: 2px solid var(--line); }
+.step .n { flex: none; width: 76px; font-size: 52px; font-weight: 800; line-height: 52px; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--accent); }
+.step b { display: block; font-size: 42px; font-weight: 700; line-height: 52px; letter-spacing: -0.015em; }
+.step p { text-wrap: pretty; margin-top: 6px; font-size: 30px; font-weight: 500; line-height: 42px; color: var(--meta); }
+</style>
+
+<!-- ============ HOOK (slide 1, once) ============ -->
+<section class="slide hook" data-max-words="36" data-allow-gap="280">
+  <div class="header"><b>{{PUBLICATION_NAME}}</b><span>5 mistakes · {{TOTAL_RAW}} slides</span></div>
+
+  <div class="hero">
+    <h1>5 carousel mistakes that <span class="hi">lose</span> readers by <span class="under">slide 2</span></h1>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b><p>{{POSITIONING_TEXT}}</p></div>
+    </div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CONTENT (repeat 4 to 8 times) ============ -->
+<section class="slide content" data-max-words="105" data-allow-gap="240">
+  <div class="header"><b>{{PUBLICATION_NAME}}</b><span>Mistake 01 of 05</span></div>
+
+  <div class="hero">
+    <h2>Two ideas <span class="hi">fighting</span> on one slide</h2>
+    <div class="body">
+      <p>A reader on a phone sees one slide at a time. When that slide carries two ideas, neither one lands and the next swipe feels like work.</p>
+      <p>Give every idea its own slide, even if the deck gets longer.</p>
+    </div>
+    <p class="key">Read your densest slide out loud. If you say "and also", split it in two.</p>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b><p>{{POSITIONING_TEXT}}</p></div>
+    </div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>
+
+<!-- ============ CTA (last slide, once) ============ -->
+<section class="slide cta" data-max-words="90" data-allow-gap="280">
+  <div class="header"><b>{{PUBLICATION_NAME}}</b><span>Your turn</span></div>
+
+  <div class="hero">
+    <h2>Fix <span class="hi">one</span> slide <span class="under">today</span></h2>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><div><b>Split the densest slide</b><p>Find the slide with two ideas and give each one its own page.</p></div></div>
+      <div class="step"><span class="n">02</span><div><b>Check it on your phone</b><p>If you squint at the body text, raise the size and cut words.</p></div></div>
+      <div class="step"><span class="n">03</span><div><b>Add the next step</b><p>End each slide with one thing the reader can do.</p></div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="avatar" data-initial="{{AUTHOR_INITIAL}}"></div>
+      <div><b>{{AUTHOR_NAME}}</b><p>{{POSITIONING_TEXT}}</p></div>
+    </div>
+    <div class="page">{{PAGE}} / {{TOTAL}}</div>
+  </div>
+</section>

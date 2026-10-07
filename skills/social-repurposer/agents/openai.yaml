@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Repurposer"
+  short_description: "Turn newsletters and rough ideas into social drafts"
+  default_prompt: "Use $social-repurposer to turn this newsletter, rough idea, or voice note into Substack Notes, LinkedIn posts, and X threads."

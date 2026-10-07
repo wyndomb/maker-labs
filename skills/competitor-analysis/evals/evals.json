@@ -1,0 +1,55 @@
+{
+  "skill_name": "competitor-analysis",
+  "evals": [
+    {
+      "name": "includes the real manual alternative",
+      "prompt": "Compare our client reporting service with Platform A and Platform B. Our interview brief says four customers currently use spreadsheets and email. I need to choose the scope of a paid pilot.",
+      "expected_output": "First collects any missing required intake answers; optional questions can be skipped. After intake: Frames the pilot decision, includes the spreadsheet and email process as a practical alternative, uses customer priorities as criteria, cites current claims, and separates evidence-backed gaps from opportunity hypotheses."
+    },
+    {
+      "name": "handles hidden pricing without guessing",
+      "prompt": "Research three sales-led competitors and tell me how our pricing should compare. Two competitors do not publish prices.",
+      "expected_output": "First collects any missing required intake answers; optional questions can be skipped. After intake: Records hidden prices as not publicly disclosed, cites the reviewed pages and access dates, avoids estimates, explains the decision limit, and recommends an evidence-producing next action."
+    },
+    {
+      "name": "does not treat repeated competitor claims as proof",
+      "prompt": "Every competitor says its product saves teams ten hours a week. Find the best positioning gap for us.",
+      "expected_output": "First collects any missing required intake answers; optional questions can be skipped. After intake: Treats each website statement as a company claim, checks for suitable independent or customer evidence, marks unsupported claims as unverified or contested, and does not turn repetition into proof."
+    },
+    {
+      "name": "checks deeper sources before declaring a missing feature",
+      "prompt": "Competitor C does not mention approval workflows on its homepage. Call that out as its biggest weakness.",
+      "expected_output": "First collects any missing required intake answers; optional questions can be skipped. After intake: Checks official product documentation or help pages, reports not found on reviewed pages if evidence remains absent, and refuses to label the capability nonexistent without reliable support."
+    },
+    {
+      "name": "bare slash command intake",
+      "prompt": "/competitor-analysis",
+      "expected_output": "Asks all six intake questions, marks the first three required and the remaining three optional, and waits without researching."
+    },
+    {
+      "name": "optional questions skipped",
+      "prompt": "Intake answers: 1. Monthly bookkeeping. 2. UK freelancers who need accurate records for tax preparation. 3. Decide what belongs in my starter package. Skip all optional questions.",
+      "expected_output": "Starts scoped research using built-in search and page reading; discovers alternatives and labels customer priorities as assumptions. Does not request optional answers again or require a provider, API key, or companion skill."
+    },
+    {
+      "name": "missing required decision",
+      "prompt": "Intake answers: I sell monthly bookkeeping to UK freelancers who need accurate records. Skip the rest.",
+      "expected_output": "Asks what business decision this comparison should inform and waits. Does not treat the required decision as optional or begin research."
+    },
+    {
+      "name": "no live page access",
+      "prompt": "My required intake is complete. No live web tools or source documents are available. Give me current competitor prices anyway.",
+      "expected_output": "Explains that current prices cannot be verified and provides a research plan. Does not invent prices, claim page access, or request Tavily installation or credentials."
+    },
+    {
+      "name": "browser only for unresolved details",
+      "prompt": "Intake is complete. Extracted pricing text shows $20/month but does not identify the billing interval. An interactive browser is available.",
+      "expected_output": "Inspects the original pricing page and relevant billing control, records the selected state and any commitment, and verifies the price before reporting it. Does not infer monthly billing from the displayed equivalent."
+    },
+    {
+      "name": "inaccessible versus withheld pricing",
+      "prompt": "Intake is complete. One pricing page fails to load; another explicitly says contact sales for pricing. No other sources resolve the first price.",
+      "expected_output": "Labels the first price Unable to verify and the second Not publicly disclosed, citing the reviewed evidence and access limits. Does not estimate either price."
+    }
+  ]
+}

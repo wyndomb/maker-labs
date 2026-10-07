@@ -1,0 +1,4 @@
+interface:
+  display_name: "DESIGN.md Builder"
+  short_description: "Build a brand guide, audit, and active corrections"
+  default_prompt: "Use $design-md-builder to extract my brand references into a design folder containing DESIGN.md, design-audit.md, and design-corrections.md, and flag anything I should approve."

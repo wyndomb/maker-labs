@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitor Analysis"
+  short_description: "Compare competitors with source-backed evidence"
+  default_prompt: "Use $competitor-analysis to research these competitors and produce a dated, source-backed decision brief."

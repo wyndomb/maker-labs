@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meeting Decisions"
+  short_description: "Find meeting decisions and commitments with sources"
+  default_prompt: "Use $meeting-decisions to find what we agreed in this meeting, who committed to each action, and what remains unresolved, with links to the evidence."

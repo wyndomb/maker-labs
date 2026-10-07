@@ -1,0 +1,16 @@
+{
+  "name": "ai-with-wyndo",
+  "description": "Plugins by Wyndo (AI With Wyndo) for creators and solo operators.",
+  "owner": {
+    "name": "Wyndo",
+    "email": "wyndo.mitra@gmail.com",
+    "url": "https://aiwithwyndo.com"
+  },
+  "plugins": [
+    {
+      "name": "maker-labs",
+      "source": "./",
+      "description": "Fifteen skills for creators: content angles, interview-to-draft, draft reviews, anti-slop editing, social repurposing, LinkedIn carousels, brand guides, competitor and SEO research, meeting decisions, and a daily work brief."
+    }
+  ]
+}

@@ -40,4 +40,4 @@ If the connection requires a channel, list a small set of relevant accessible ch
 
 Resolve contradictory Slack/email statuses by checking timestamps and the full context. A later message overrides an earlier one only when it clearly refers to the same action and changes its status. Report unresolved conflicts.
 
-Availability varies by host, account, and administrator permissions. Reference checked 2026-10-07: [Using Slack in ChatGPT](https://help.openai.com/en/articles/12525822-using-slack-in-chatgpt). This documents the ChatGPT integration; verify actual tools in other hosts rather than assuming identical behavior.
+Availability varies by account, workspace plan, and administrator permissions. Rely on the Slack connector's current tool descriptions rather than assuming a fixed set of capabilities.

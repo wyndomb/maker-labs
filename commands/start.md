@@ -35,6 +35,6 @@ Otherwise, show this menu as written, then ask: "What are you working on? Paste 
 - **Daily Work Brief**: priorities and meeting prep from your email and calendar.
 - **Meeting Decisions**: decisions and action items from your meeting transcripts.
 
-After the menu, add one line: "Skills that read your apps (Gmail, Calendar, Slack, Zoom, Granola, Wispr Flow, Notion, OpenSEO) need that app connected on the Maker Labs Connectors tab. Everything else works with what you paste."
+After the menu, add one line: "Skills that read your apps (Gmail, Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, Notion, OpenSEO) need that app connected on the Maker Labs Connectors tab. Everything else works with what you paste."
 
 When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.

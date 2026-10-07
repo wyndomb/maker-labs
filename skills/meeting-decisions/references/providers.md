@@ -26,8 +26,12 @@ The official app supports completed-meeting transcripts, summaries, and recordin
 
 Official reference: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0083574
 
+## Google Drive
+
+Google Meet saves transcripts and Gemini "Take notes for me" notes as Google Docs in the meeting organizer's Drive, usually in a "Meet Recordings" folder, and attaches them to the calendar event. Use the Drive connector's search to find the document by meeting title, date, or a link the user supplies, then read its full content. A Meet transcript doc is verbatim evidence with speaker names and timestamps; Gemini notes are a summary and must be labeled as notes, not speech. Only the organizer and people they shared the file with can open it; an empty search may mean the user lacks access, not that no transcript exists. Inspect the installed Drive tool schemas rather than assuming tool names.
+
 ## Supplied files and other connected sources
 
 Read pasted text or accessible TXT, VTT, SRT, or Markdown transcripts directly. Preserve speaker labels and timecodes while interpreting the text. For PDFs, documents, or other formats, use available extraction tools and disclose unreadable sections. Do not claim audio transcription when only text extraction ran.
 
-Use Drive, Notion, or email when the user points to material there and the required read tools are available. A calendar can help locate the meeting but is not evidence of what was said. No meeting connector is required for the supplied-text path.
+Use Notion or email, or other Drive documents, when the user points to material there and the required read tools are available. A calendar can help locate the meeting but is not evidence of what was said. No meeting connector is required for the supplied-text path.

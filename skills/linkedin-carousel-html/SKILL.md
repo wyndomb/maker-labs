@@ -7,7 +7,7 @@ description: Create or edit LinkedIn carousels from notes, transcripts, drafts, 
 
 Takes whatever the user has (talking, notes, a transcript, a draft, a URL), finds the one carousel worth making, confirms the outline, then builds 1080x1350 slides as HTML for the user to review. PDF and PNG export happens only after the user approves the preview for conversion.
 
-`SKILL_DIR` below means the folder this file lives in. Every command is `node "$SKILL_DIR/scripts/carousel.mjs" <command>`. Resolve this path from the installed skill, not a hardcoded Claude or Codex directory. If using an explicit brand file, append `--config "<path>"` to every command that uses branding, including `doctor`, `demo`, `html`, `check`, and `build`.
+`SKILL_DIR` below means the folder this file lives in. Every command is `node "$SKILL_DIR/scripts/carousel.mjs" <command>`. Resolve this path from the installed skill, not a hardcoded plugin installation directory. If using an explicit brand file, append `--config "<path>"` to every command that uses branding, including `doctor`, `demo`, `html`, `check`, and `build`.
 
 ## 0. Pre-flight
 

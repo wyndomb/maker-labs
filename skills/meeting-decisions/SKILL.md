@@ -1,6 +1,6 @@
 ---
 name: meeting-decisions
-description: Find existing meeting transcripts or notes in Zoom, Granola, Wispr Flow, or supplied files, then extract decisions, action items, and unresolved questions with evidence. Use for questions about what was agreed, who committed to what, or how a decision changed across meetings.
+description: Find existing meeting transcripts or notes in Zoom, Granola, Wispr Flow, Google Drive (such as Google Meet transcripts and Gemini notes), or supplied files, then extract decisions, action items, and unresolved questions with evidence. Use for questions about what was agreed, who committed to what, or how a decision changed across meetings.
 ---
 
 # Meeting Decisions

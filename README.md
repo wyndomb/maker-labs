@@ -2,7 +2,32 @@
 
 Maker Labs is a set of fifteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). It works in Claude chat, Cowork, and Claude Code.
 
-Version 0.1.21 contains these skills:
+## Install
+
+You add it once and it follows your Claude account to chat, Cowork, and Claude Code.
+
+**Claude app (web or desktop)**
+
+1. Go to **Customize → Plugins**.
+2. Select **Add → Add marketplace** and enter `wyndomb/maker-labs`.
+3. Open **Maker Labs** and select **Add**.
+4. Turn on **Sync automatically** for the marketplace so you get every update without doing anything.
+5. Optional: open the plugin's **Connectors** tab and connect the apps you use. Skip any you don't need.
+
+**Claude Code**
+
+```bash
+claude plugin marketplace add wyndomb/maker-labs
+claude plugin install maker-labs@ai-with-wyndo
+```
+
+**Then try it.** Type `/maker-labs:start` in any chat for a short menu of what each skill does, or describe what you're working on and Claude picks the right skill.
+
+**Updates.** New versions arrive automatically when **Sync automatically** is on. Otherwise open Maker Labs and select **Check for updates**. Your saved settings, such as carousel branding, live outside the plugin and are never overwritten by an update.
+
+## Skills
+
+Version 0.1.22 contains these skills:
 
 - Opposite Start Ideation: find differentiated angles.
 - Brain Dump to Content: paste messy notes, choose an angle, and get a writing brief. Uses the reader's own material and voice, with no required connections. Flags incomplete sources and anonymizes sensitive details by default.
@@ -21,7 +46,7 @@ Version 0.1.21 contains these skills:
 
 - Competitor Analysis: compare competitors and customer alternatives for a named business decision, with dated sources, pricing qualifiers, and explicit unknowns. Works with available live research tools or supplied material; unavailable live research is disclosed. See [usage notes](skills/competitor-analysis/README.md).
 
-- Meeting Decisions: find existing meeting transcripts or notes, identify agreed decisions and action items, and trace changes across meetings with source links. Supports Zoom, Granola, Wispr Flow, and supplied transcript files. Distinguishes proposals and unconfirmed assignments from commitments; discloses notes-only and partial coverage.
+- Meeting Decisions: find existing meeting transcripts or notes, identify agreed decisions and action items, and trace changes across meetings with source links. Supports Zoom, Granola, Wispr Flow, Google Drive (Google Meet transcripts and Gemini notes), and supplied transcript files. Distinguishes proposals and unconfirmed assignments from commitments; discloses notes-only and partial coverage.
 
 - SEO Brief: turn one topic, keyword, draft, or page into a sourced Create, Update, or Reconsider recommendation. Uses OpenSEO for keyword and search-result research, available page-reading tools for competing articles, and connected Search Console when helpful. Delivers a writing plan with evidence needs, metadata, and verified internal links. Missing OpenSEO data yields an explicitly provisional supplied-evidence brief. No required writing handoff or automatic remote saving.
 
@@ -29,7 +54,7 @@ Version 0.1.21 contains these skills:
 
 New here? Run `/maker-labs:start` for a short menu, or add your task after it (`/maker-labs:start I have messy notes for a newsletter`) to go straight to the right skill. You can also start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
 
-Optional app connections: Gmail, Google Calendar, Notion, Zoom, Granola, Wispr Flow, and Slack. Each reader needs their own service access and any required authentication. Connections do not authorize sending, publishing, or changing events. Social Repurposer saves to Notion only when asked and when the target is accessible.
+Optional app connections: Gmail, Google Calendar, Google Drive, Notion, Zoom, Granola, Wispr Flow, and Slack. Each reader needs their own service access and any required authentication. Connections do not authorize sending, publishing, or changing events. Social Repurposer saves to Notion only when asked and when the target is accessible.
 
 Existing ideation and social-writing subagent workflows are preserved. New skills include usage notes and evaluation cases. File creation, preview, research, and delegation depend on the tools available in the reader's chat.
 
@@ -67,7 +92,7 @@ The default review covers today's calendar, recent email activity, and a focused
 
 - **No data collection.** The plugin has no server of its own, no analytics, and no telemetry. It stores nothing outside the files you ask it to create.
 - **OpenSEO (optional).** The bundled MCP connection points to `https://app.openseo.so/mcp`. When you connect it and use SEO Brief or Competitor Analysis, your topic, keywords, and URLs are sent to OpenSEO under your own account. See [OpenSEO](https://openseo.so).
-- **Your own apps (optional).** The plugin lists the official connectors for Gmail, Google Calendar, Slack, Zoom, Granola, Wispr Flow, and Notion on its **Connectors** tab. Nothing connects until you sign in to each one with your own account. Daily Work Brief, Meeting Decisions, and Social Repurposer use them to read your data. They are read-only except that Social Repurposer saves to Notion when you ask.
+- **Your own apps (optional).** The plugin lists the official connectors for Gmail, Google Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, and Notion on its **Connectors** tab. Nothing connects until you sign in to each one with your own account. Daily Work Brief, Meeting Decisions, and Social Repurposer use them to read your data. They are read-only except that Social Repurposer saves to Notion when you ask.
 - **Web research.** Skills such as News Digest, Competitor Analysis, and Opposite Start Ideation use whatever web search tools your Claude session already has.
 - **Local scripts.** Some skills ship readable scripts that run only when the skill needs them: `linkedin-carousel-html` runs a Node script that drives a local Chromium browser to export PDF/PNG; the carousel HTML templates load fonts from Google Fonts (fonts.googleapis.com, fonts.gstatic.com). `design-md-builder`, `visual-plan-builder`, and `social-repurposer` include Python check scripts that read only local files. `design-md-builder` can run Google's `@google/design.md` linter (pinned to 0.4.0, via npx) only when you explicitly ask for that check.
 

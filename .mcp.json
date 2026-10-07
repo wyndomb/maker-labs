@@ -1,8 +1,12 @@
 {
   "mcpServers": {
-    "openseo": {
-      "type": "http",
-      "url": "https://app.openseo.so/mcp"
-    }
+    "gmail": { "type": "http", "url": "https://gmailmcp.googleapis.com/mcp/v1" },
+    "google-calendar": { "type": "http", "url": "https://calendarmcp.googleapis.com/mcp/v1" },
+    "notion": { "type": "http", "url": "https://mcp.notion.com/mcp" },
+    "slack": { "type": "http", "url": "https://mcp.slack.com/mcp" },
+    "zoom": { "type": "http", "url": "https://mcp.zoom.us/mcp/zoom/streamable" },
+    "granola": { "type": "http", "url": "https://mcp.granola.ai/mcp" },
+    "wispr-flow": { "type": "http", "url": "https://api.wisprflow.ai/connect/mcp" },
+    "openseo": { "type": "http", "url": "https://app.openseo.so/mcp" }
   }
 }

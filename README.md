@@ -2,7 +2,7 @@
 
 Maker Labs is a set of fifteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). It works in Claude chat, Cowork, and Claude Code.
 
-Version 0.1.19 contains these skills:
+Version 0.1.20 contains these skills:
 
 - Opposite Start Ideation: find differentiated angles.
 - Brain Dump to Content: paste messy notes, choose an angle, and get a writing brief. Uses the reader's own material and voice, with no required connections. Flags incomplete sources and anonymizes sensitive details by default.
@@ -67,7 +67,7 @@ The default review covers today's calendar, recent email activity, and a focused
 
 - **No data collection.** The plugin has no server of its own, no analytics, and no telemetry. It stores nothing outside the files you ask it to create.
 - **OpenSEO (optional).** The bundled MCP connection points to `https://app.openseo.so/mcp`. When you connect it and use SEO Brief or Competitor Analysis, your topic, keywords, and URLs are sent to OpenSEO under your own account. See [OpenSEO](https://openseo.so).
-- **Your own apps (optional).** Daily Work Brief, Meeting Decisions, and Social Repurposer can read Gmail, Google Calendar, Slack, Zoom, Granola, Wispr Flow, or Notion only through connectors you have already connected yourself. They are read-only except that Social Repurposer saves to Notion when you ask.
+- **Your own apps (optional).** The plugin lists the official connectors for Gmail, Google Calendar, Slack, Zoom, Granola, Wispr Flow, and Notion on its **Connectors** tab. Nothing connects until you sign in to each one with your own account. Daily Work Brief, Meeting Decisions, and Social Repurposer use them to read your data. They are read-only except that Social Repurposer saves to Notion when you ask.
 - **Web research.** Skills such as News Digest, Competitor Analysis, and Opposite Start Ideation use whatever web search tools your Claude session already has.
 - **Local scripts.** Some skills ship readable scripts that run only when the skill needs them: `linkedin-carousel-html` runs a Node script that drives a local Chromium browser to export PDF/PNG; the carousel HTML templates load fonts from Google Fonts (fonts.googleapis.com, fonts.gstatic.com). `design-md-builder`, `visual-plan-builder`, and `social-repurposer` include Python check scripts that read only local files. `design-md-builder` can run Google's `@google/design.md` linter (pinned to 0.4.0, via npx) only when you explicitly ask for that check.
 

@@ -1,10 +1,10 @@
 # Maker Labs
 
-Maker Labs is a set of fifteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). It works in Claude chat, Cowork, and Claude Code.
+Maker Labs is a set of fifteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). Install it in Claude chat, Cowork, or Claude Code, or use the Codex marketplace instructions below.
 
 ## Install
 
-You add it once and it follows your Claude account to chat, Cowork, and Claude Code.
+Choose the instructions for your app below.
 
 **Claude app (web or desktop)**
 
@@ -21,9 +21,39 @@ claude plugin marketplace add wyndomb/maker-labs
 claude plugin install maker-labs@ai-with-wyndo
 ```
 
-**Then try it.** Type `/maker-labs:start` in any chat for a short menu of what each skill does, or describe what you're working on and Claude picks the right skill.
+**Then try it in Claude.** Type `/maker-labs:start` in a Claude chat for a short menu of what each skill does, or describe what you're working on and Claude picks the right skill.
 
-**Updates.** New versions arrive automatically when **Sync automatically** is on. Otherwise open Maker Labs and select **Check for updates**. Your saved settings, such as carousel branding, live outside the plugin and are never overwritten by an update.
+**Claude updates.** New versions arrive automatically when **Sync automatically** is on. Otherwise open Maker Labs and select **Check for updates**. Your saved settings, such as carousel branding, live outside the plugin and are never overwritten by an update.
+
+### Codex
+
+You need the Codex CLI installed with support for `codex plugin`. Run these commands in your terminal:
+
+```bash
+codex plugin marketplace add wyndomb/maker-labs --ref main
+codex plugin add maker-labs@ai-with-wyndo
+```
+
+The first command adds the **AI With Wyndo** marketplace from this repository. The second installs **Maker Labs**. If `codex plugin` is unavailable, update your Codex CLI before continuing.
+
+Start a new Codex session after installation. If you use the desktop app, restart it so it can pick up the plugin. Connect any apps you want to use with your own accounts when prompted.
+
+**Then try it in Codex.** Name a skill and give it some material, for example:
+
+> Use Anti-Slop to review this draft. Flag generic wording and suggest changes while preserving my voice: [paste your draft]
+
+The `/maker-labs:start` command above is the Claude entry point. In Codex, start by naming the skill you want to use.
+
+**Codex updates.** To fetch the latest marketplace version and install the current plugin, run:
+
+```bash
+codex plugin marketplace upgrade ai-with-wyndo
+codex plugin add maker-labs@ai-with-wyndo
+```
+
+Then start a new session, or restart the desktop app. This setup uses the GitHub marketplace on your computer. Automatic updates and installation across ChatGPT web and mobile are not promised by this setup.
+
+These commands match the Codex CLI help and [OpenAI's marketplace documentation](https://developers.openai.com/plugins/build/plugins). A fresh Maker Labs installation and version-update test in Codex are still pending.
 
 ## Skills
 
@@ -52,7 +82,7 @@ Version 0.1.22 contains these skills:
 
 - Daily Work Brief: prepare for the workday using the reader's email and calendar, with optional Slack context. Recommends a starting action, verifies current thread status, flags work requests, and prepares for today's meetings. Uses the reader's own accounts and goals, discloses partial coverage, and stays read-only. Slack channel selection is only requested when the available tools require it.
 
-New here? Run `/maker-labs:start` for a short menu, or add your task after it (`/maker-labs:start I have messy notes for a newsletter`) to go straight to the right skill. You can also start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
+New here? In Claude, run `/maker-labs:start` for a short menu, or add your task after it (`/maker-labs:start I have messy notes for a newsletter`) to go straight to the right skill. You can also start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
 
 Optional app connections: Gmail, Google Calendar, Google Drive, Notion, Zoom, Granola, Wispr Flow, and Slack. Each reader needs their own service access and any required authentication. Connections do not authorize sending, publishing, or changing events. Social Repurposer saves to Notion only when asked and when the target is accessible.
 
@@ -93,7 +123,7 @@ The default review covers today's calendar, recent email activity, and a focused
 - **No data collection.** The plugin has no server of its own, no analytics, and no telemetry. It stores nothing outside the files you ask it to create.
 - **OpenSEO (optional).** The bundled MCP connection points to `https://app.openseo.so/mcp`. When you connect it and use SEO Brief or Competitor Analysis, your topic, keywords, and URLs are sent to OpenSEO under your own account. See [OpenSEO](https://openseo.so).
 - **Your own apps (optional).** The plugin lists the official connectors for Gmail, Google Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, and Notion on its **Connectors** tab. Nothing connects until you sign in to each one with your own account. Daily Work Brief, Meeting Decisions, and Social Repurposer use them to read your data. They are read-only except that Social Repurposer saves to Notion when you ask.
-- **Web research.** Skills such as News Digest, Competitor Analysis, and Opposite Start Ideation use whatever web search tools your Claude session already has.
+- **Web research.** Skills such as News Digest, Competitor Analysis, and Opposite Start Ideation use whatever web search tools your session already has.
 - **Local scripts.** Some skills ship readable scripts that run only when the skill needs them: `linkedin-carousel-html` runs a Node script that drives a local Chromium browser to export PDF/PNG; the carousel HTML templates load fonts from Google Fonts (fonts.googleapis.com, fonts.gstatic.com). `design-md-builder`, `visual-plan-builder`, and `social-repurposer` include Python check scripts that read only local files. `design-md-builder` can run Google's `@google/design.md` linter (pinned to 0.4.0, via npx) only when you explicitly ask for that check.
 
 ## License

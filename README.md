@@ -57,32 +57,41 @@ These commands match the Codex CLI help and [OpenAI's marketplace documentation]
 
 ## Skills
 
-Version 0.1.24 contains these skills:
+Version 0.1.24 contains sixteen skills. Each one works on its own; use them in any order.
 
-- Inverse Ideation: find differentiated angles.
-- Brain Dump to Content: paste messy notes, choose an angle, and get a writing brief. Uses the reader's own material and voice, with no required connections. Flags incomplete sources and anonymizes sensitive details by default.
-- Interview to Draft: turn real experience into grounded drafts.
-- Social Repurposer: adapt a source for different channels.
-- Draft Review Panel: paste a draft and get three to five reviewers selected for its audience, purpose, and format. No writing samples or style setup required. Independent reviews use available subagents, with a disclosed sequential fallback. Returns prioritized fixes without rewriting the draft. See [usage notes](skills/draft-review-panel/README.md).
-- Anti-Slop: edit generic writing or flag patterns while preserving meaning and voice.
-- Strategic Decision Framework: compare business options using evidence, constraints, and measurable next steps. Optional evidence and challenge reviewers use subagents when available and authorized, with a disclosed sequential fallback.
-- Visual Plan Builder: create a standalone HTML plan with assumptions, options, workflow, risks, and success checks. It respects execution authorization already given.
+### Find something to say
 
-- News Digest: source-linked briefings on any topic, with a default 48-hour window, available search tools, and HTML only when requested. Live research depends on available tools; supplied-source summaries are labeled.
+- **Inverse Ideation**: find an angle nobody else is taking. It researches what mainstream sources, practitioners, and critics are already saying about your topic, maps the crowded takes, then flips them into fresh, defensible angles and checks that the best ones aren't already out there. You get one recommended angle with the evidence behind it, so you stop writing the same post as everyone else. Give it a topic and, optionally, your audience.
+- **Brain Dump to Content**: turn messy notes, a voice memo, or a ramble into something worth publishing. It finds up to three distinct angles hiding in your own material, lets you pick one, and develops it into a writing brief for a post, newsletter, talk, or team update. It works only from what you give it, flags where your notes are thin, and anonymizes sensitive details by default.
+- **News Digest**: get a short, source-linked briefing on any topic, company, or set of topics, covering the last 48 hours by default. Every item links to its source so you can check it, and you can ask for a visual HTML version to share. Useful for daily or weekly roundups, or for staying current before you write.
 
-- LinkedIn Carousel: turn source material into slides with nine HTML templates. HTML previews are shown first; PDF and individual PNG exports wait for the user's approval of the preview for conversion. Automatic PDF/PNG export requires Node and a Chromium browser in the current execution environment. HTML for manual printing is available when automatic export cannot run. Users choose a template and the photo or logo for each new carousel unless already specified. Logos retain their full proportions. Personal branding is saved separately from the plugin.
+### Write it
 
-- Voice Builder: study your long-form writing and, optionally, your spoken words from Wispr Flow, Granola, Zoom, or Google Drive transcripts, then build one portable `VOICE.md` with quoted evidence, before-and-after examples, and a hold-out test. Store it anywhere and use it as the source of truth whenever you write, in Claude or any other tool. Uses only your own words from meeting transcripts. Optional measured statistics require Python 3.9 or later. See [usage notes](skills/voice-md-builder/README.md).
+- **Interview to Draft**: get a draft that actually sounds like your experience, not generic AI filler. It interviews you one question at a time, digs for your real examples and opinions, checks current facts, and maps where every claim came from. The draft is built from your words; anything missing comes back to you as a question instead of being made up. Works for newsletters, articles, LinkedIn posts, essays, and proposals.
+- **Voice Builder**: capture how you write and speak in one portable `VOICE.md`. It studies your long-form writing and, if you choose, your own words from Wispr Flow, Granola, Zoom, or Google Drive transcripts, then writes rules backed by quotes from your work, before-and-after examples, and a test against one of your real pieces. Keep the file anywhere and use it as the source of truth whenever you write, in Claude or any other tool. See [usage notes](skills/voice-md-builder/README.md).
+- **SEO Brief**: decide whether to create a new page, update an existing one, or skip the topic, backed by real search data. It uses OpenSEO for keyword and search-result research, reads the articles that currently rank, and gives you a writing plan with the angle, outline, evidence to gather, metadata, and internal links. If search data isn't available, it says so and labels the brief as provisional.
 
-- DESIGN.md Builder: turn supplied brand references into a reusable guide, evidence audit, and accepted design corrections. Supports create, update, and audit modes. Website inspection uses available tools. Automated checks require Python 3.9 or later; a disclosed manual review and copyable file contents are available when execution or saving is unavailable. See [usage notes](skills/design-md-builder/README.md).
+### Make it better
 
-- Competitor Analysis: compare competitors and customer alternatives for a named business decision, with dated sources, pricing qualifiers, and explicit unknowns. Works with available live research tools or supplied material; unavailable live research is disclosed. See [usage notes](skills/competitor-analysis/README.md).
+- **Draft Review Panel**: get feedback from three to five reviewers chosen for your draft's audience, purpose, and format, such as a skeptical reader, an editor, or a subject expert. They review independently, then you get one prioritized list of fixes tied to specific passages. It doesn't rewrite your draft, so the decisions stay yours. See [usage notes](skills/draft-review-panel/README.md).
+- **Anti-Slop**: make a draft sound human again. In edit mode it removes AI-sounding patterns, filler, and tangled sentences while keeping your point, your quirks, and your voice, then shows what changed. In flag mode it only points out the patterns, line by line, so you can fix them yourself. Works on emails, posts, newsletters, reports, and anything else you write.
 
-- Meeting Decisions: find existing meeting transcripts or notes, identify agreed decisions and action items, and trace changes across meetings with source links. Supports Zoom, Granola, Wispr Flow, Google Drive (Google Meet transcripts and Gemini notes), and supplied transcript files. Distinguishes proposals and unconfirmed assignments from commitments; discloses notes-only and partial coverage.
+### Spread it
 
-- SEO Brief: turn one topic, keyword, draft, or page into a sourced Create, Update, or Reconsider recommendation. Uses OpenSEO for keyword and search-result research, available page-reading tools for competing articles, and connected Search Console when helpful. Delivers a writing plan with evidence needs, metadata, and verified internal links. Missing OpenSEO data yields an explicitly provisional supplied-evidence brief. No required writing handoff or automatic remote saving.
+- **Social Repurposer**: turn one newsletter, voice note, or set of rough ideas into a full pack of social drafts: by default 10 Substack Notes, 5 LinkedIn posts, and 3 X threads. Each channel gets its own writer that follows that platform's style, while keeping your voice and your actual ideas. If the source is thin, it asks one to three quick questions instead of padding. Nothing is published or scheduled.
+- **LinkedIn Carousel**: turn notes, a transcript, a draft, or an article link into a LinkedIn carousel using one of nine designed templates. You approve an HTML preview first, then export a PDF and individual PNG slides. Your name, photo or logo, and default template are saved once and reused. Automatic export needs Node and a Chromium browser; otherwise you get print-ready HTML.
+- **DESIGN.md Builder**: turn your brand references (website, past designs, style notes) into a reusable brand guide that any AI tool can follow when making websites, slides, lead magnets, or reports. It records where each rule came from, flags gaps and conflicts, and keeps a list of accepted corrections so the same design mistakes stop repeating. See [usage notes](skills/design-md-builder/README.md).
 
-- Daily Work Brief: prepare for the workday using the reader's email and calendar, with optional Slack context. Recommends a starting action, verifies current thread status, flags work requests, and prepares for today's meetings. Uses the reader's own accounts and goals, discloses partial coverage, and stays read-only. Slack channel selection is only requested when the available tools require it.
+### Decide and plan
+
+- **Strategic Decision Framework**: pressure-test a business decision such as a launch, a price change, or which project to do next. It looks at the choice through a few strategic lenses, separates evidence from assumptions, and recommends a small, reversible test with clear measures of success, so you can decide with more than gut feel.
+- **Competitor Analysis**: see how you really compare. It researches your competitors and the alternatives customers actually use, including doing nothing or a spreadsheet, and gives you a dated, sourced comparison with pricing, gaps, and what it means for your positioning. Unknowns are stated, not guessed. See [usage notes](skills/competitor-analysis/README.md).
+- **Visual Plan Builder**: before a complex piece of work, get a visual HTML plan you can review at a glance: assumptions, options, workflow, risks, and how you'll know it worked. Useful for agreeing on direction before anything gets built or written.
+
+### Run your day
+
+- **Daily Work Brief**: start the day knowing what matters. It reads your email and calendar, and Slack if you connect it, then recommends where to start, flags requests waiting on you, checks whether threads are still open, and prepares you for today's meetings. It's read-only: it never sends, books, or changes anything.
+- **Meeting Decisions**: find out what was actually agreed. It pulls meeting transcripts or notes from Zoom, Granola, Wispr Flow, Google Drive (Google Meet transcripts and Gemini notes), or files you supply, and lists decisions, action items with owners, and open questions, each linked to the moment it was said. It separates real commitments from suggestions and can trace how a decision changed across meetings.
 
 New here? In Claude, run `/maker-labs:start` for a short menu, or add your task after it (`/maker-labs:start I have messy notes for a newsletter`) to go straight to the right skill. You can also start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
 

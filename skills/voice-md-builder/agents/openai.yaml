@@ -1,0 +1,4 @@
+interface:
+  display_name: "Voice Builder"
+  short_description: "Build a portable VOICE.md from your writing and speech"
+  default_prompt: "Use $voice-md-builder to study my long-form writing and, if I choose, my spoken transcripts, then build a VOICE.md I can use as the source of truth whenever I write."

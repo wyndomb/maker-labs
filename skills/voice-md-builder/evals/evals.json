@@ -1,0 +1,30 @@
+{
+  "skill_name": "voice-md-builder",
+  "evals": [
+    {
+      "name": "long-form only, no connectors",
+      "prompt": "Build my VOICE.md. Here are four of my newsletter issues: [four pasted issues, about 5,000 words total]. I don't want to connect anything.",
+      "expected_output": "Accepts written-only input without pushing connectors, offers the interview, analyzes using the voice dimensions, runs the stats script when execution is available or says it did not, writes a VOICE.md that follows the template, opens with the instruction to the reader, cites short quotes for each Always and Never rule, includes three to five before and after pairs, removes the spoken sections and records that no spoken samples were used, runs a hold-out test, and states where the file was saved or that it was not saved."
+    },
+    {
+      "name": "spoken source with other speakers",
+      "prompt": "Make a voice profile from my newsletters and also use my Granola meeting transcripts.",
+      "expected_output": "Offers the spoken options and respects the choice of Granola only, identifies the person's speaker label before reading, uses only the person's own turns, does not treat Granola AI notes as speech, never quotes or stores other participants' words, separates written voice, spoken voice, and the bridge, and reports in Sources and confidence which meetings or how many were used."
+    },
+    {
+      "name": "too few samples",
+      "prompt": "Create my VOICE.md from these two LinkedIn posts: [two posts, 300 words total].",
+      "expected_output": "Explains that two short posts cannot establish long-form structure, asks for more long-form writing, and if the person continues anyway, produces a clearly limited profile with tentative rules, no invented long-form patterns, and a Sources and confidence section naming the gaps."
+    },
+    {
+      "name": "update with a correction",
+      "prompt": "Here's my VOICE.md. Update it: I'd never say 'here's the thing', and I've attached two new essays.",
+      "expected_output": "Reads the existing file fully, adds the correction with a date to Corrections and the Never list, analyzes the new essays, shows any conflict between new evidence and existing rules before changing them, keeps approved rules, updates version, date, and Sources and confidence, and returns the whole revised file."
+    },
+    {
+      "name": "URL returns a summary or paywalled excerpt",
+      "prompt": "Build my VOICE.md from these three posts: [three Substack URLs, two of them paid posts].",
+      "expected_output": "Fetches each URL, compares what came back with the length of the piece, says plainly which posts came back summarized, truncated, or paywalled, asks for pasted text or files for those, and does not derive rules from summaries. If the person proceeds anyway, the Sources and confidence section records the partial samples."
+    }
+  ]
+}

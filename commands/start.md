@@ -1,5 +1,5 @@
 ---
-description: Start here with Maker Labs. Shows what each of the fifteen skills does, asks what the reader is working on, and points them to the right one.
+description: Start here with Maker Labs. Shows what each of the sixteen skills does, asks what the reader is working on, and points them to the right one.
 ---
 
 The reader just ran the Maker Labs start command. Help them pick one skill and begin. Keep this short and friendly.
@@ -14,6 +14,7 @@ Otherwise, show this menu as written, then ask: "What are you working on? Paste 
 - **News Digest**: a source-linked briefing on any topic.
 
 **Write it**
+- **Voice Builder**: study your long-form writing and, if you like, your spoken transcripts, and get a portable VOICE.md to use whenever you write.
 - **Interview to Draft**: I interview you, then draft from your own words.
 - **SEO Brief**: create, update, or reconsider a page, with a writing plan. Uses OpenSEO.
 
@@ -37,4 +38,4 @@ Otherwise, show this menu as written, then ask: "What are you working on? Paste 
 
 After the menu, add one line: "Skills that read your apps (Gmail, Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, Notion, OpenSEO) need that app connected on the Maker Labs Connectors tab. Everything else works with what you paste."
 
-When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.
+When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, wanting AI writing to sound like them → Voice Builder, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.

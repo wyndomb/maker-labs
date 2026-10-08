@@ -1,8 +1,8 @@
 {
   "name": "maker-labs",
   "displayName": "Maker Labs",
-  "version": "0.1.22",
-  "description": "Fifteen independent skills for creators: find content angles, turn notes and interviews into drafts, review and de-slop writing, repurpose for social, make LinkedIn carousels, build brand guides, research competitors and SEO briefs, pull meeting decisions, and prepare a daily work brief.",
+  "version": "0.1.23",
+  "description": "Sixteen independent skills for creators: find content angles, build a portable VOICE.md of how you write and speak, turn notes and interviews into drafts, review and de-slop writing, repurpose for social, make LinkedIn carousels, build brand guides, research competitors and SEO briefs, pull meeting decisions, and prepare a daily work brief.",
   "author": {
     "name": "Wyndo",
     "email": "wyndo.mitra@gmail.com",

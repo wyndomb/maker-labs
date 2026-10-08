@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "maker-labs",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "Sixteen independent skills for finding angles, building a portable VOICE.md from your writing and speech, turning rough notes into writing briefs, drafting, adaptive draft reviews, repurposing, editing, business decisions, visual planning, source-linked news briefings, LinkedIn carousels, reusable brand guides, competitor analysis, finding meeting decisions and action items, evidence-backed SEO writing briefs, and daily work priorities with meeting preparation. Includes optional Gmail, Google Calendar, Notion, Zoom, Granola, Wispr Flow, and Slack connections, plus an OpenSEO MCP connection for SEO research.",
   "author": {
     "name": "Wyndo / Maker Labs"

@@ -3,7 +3,7 @@
 Use this structure for the final brief. Keep it concise and centered on differentiation.
 
 ```markdown
-## Opposite Start Brief: [Topic]
+## Inverse Ideation Brief: [Topic]
 
 **Audience**: [audience]
 **Research window**: [dates or timeframe]

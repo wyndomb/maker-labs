@@ -1,4 +1,0 @@
-interface:
-  display_name: "Opposite Start Ideation"
-  short_description: "Find fresh angles by inverting crowded narratives"
-  default_prompt: "Use $opposite-start-ideation to find a differentiated content angle for this topic."

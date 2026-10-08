@@ -1,9 +1,9 @@
 ---
-name: opposite-start-ideation
+name: inverse-ideation
 description: Find differentiated content angles by mapping the current crowded internet narrative, generating defensible inversions, and collision-checking the strongest candidates. Use when the user asks for fresh, contrarian, blue-ocean, or less obvious angles on a topic. Use available web search for internet research; no specific search provider is required.
 ---
 
-# Opposite Start Ideation
+# Inverse Ideation
 
 Find the least obvious defensible entrance into a topic by first making the crowded internet narrative visible. The result is an angle brief, not a finished post or a broader publication audit.
 

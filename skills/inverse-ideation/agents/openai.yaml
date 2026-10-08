@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inverse Ideation"
+  short_description: "Find fresh angles by inverting crowded narratives"
+  default_prompt: "Use $inverse-ideation to find a differentiated content angle for this topic."

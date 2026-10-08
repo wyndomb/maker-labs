@@ -9,7 +9,7 @@ If they wrote a task after the command (for example "/maker-labs:start I have me
 Otherwise, show this menu as written, then ask: "What are you working on? Paste it or describe it, and I'll start the right skill."
 
 **Find something to say**
-- **Opposite Start Ideation**: fresh, less obvious angles on a topic.
+- **Inverse Ideation**: fresh, less obvious angles on a topic.
 - **Brain Dump to Content**: messy notes or a voice memo become angles and a writing brief.
 - **News Digest**: a source-linked briefing on any topic.
 

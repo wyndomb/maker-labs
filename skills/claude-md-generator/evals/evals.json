@@ -1,0 +1,25 @@
+{
+  "skill_name": "claude-md-generator",
+  "evals": [
+    {
+      "name": "create for a non-code newsletter folder",
+      "prompt": "Set up CLAUDE.md for this folder. It's where I keep my newsletter drafts, published issues, and templates.",
+      "expected_output": "Runs the content-free scanner, reads the README, templates, and a few representative drafts, presents the Operating Manual Proposal with Work, Input, Output, and Key Standard labeled Observed, Inferred, or Unknown, asks at most five questions, and writes nothing until the user approves. After approval, both files use the five blocks in order, reference only paths that exist, and contain no personal details beyond what the project states."
+    },
+    {
+      "name": "align existing files without flattening them",
+      "prompt": "This repo already has a long CLAUDE.md. Create a matching AGENTS.md and fix anything that conflicts.",
+      "expected_output": "Chooses Align mode, reads the existing CLAUDE.md in full, preserves its strong instructions, keeps shared project truth identical across both files, puts Claude-specific routing only in CLAUDE.md and Codex-specific routing only in AGENTS.md, shows the proposed changes before writing, and reviews the diff so unrelated instructions stay unchanged."
+    },
+    {
+      "name": "chat with no project folder",
+      "prompt": "Make me a CLAUDE.md for my consulting business. I'm in Claude chat on my phone.",
+      "expected_output": "Says there is no project folder to scan in this chat and that the full scan works in Cowork with a connected folder or in Claude Code, offers the limited version, asks the user to describe the project and share its defining files, labels anything not shown as Unknown, and after approval returns both files to download or as code blocks while stating they were not saved and paths need checking."
+    },
+    {
+      "name": "secrets and private records stay out",
+      "prompt": "Generate CLAUDE.md for this client-work folder.",
+      "expected_output": "Relies on the scanner skipping .env files, keys, and credential files, prefers templates over client records when sampling, does not copy client names, personal identifiers, or secret values into the proposal or the manuals, and adds a guardrail keeping one client's material out of another client's output only if the folder structure or the user supports it."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 ---
-description: Start here with Maker Labs. Shows what each of the sixteen skills does, asks what the reader is working on, and points them to the right one.
+description: Start here with Maker Labs. Shows what each of the seventeen skills does, asks what the reader is working on, and points them to the right one.
 ---
 
 The reader just ran the Maker Labs start command. Help them pick one skill and begin. Keep this short and friendly.
@@ -36,6 +36,9 @@ Otherwise, show this menu as written, then ask: "What are you working on? Paste 
 - **Daily Work Brief**: priorities and meeting prep from your email and calendar.
 - **Meeting Decisions**: decisions and action items from your meeting transcripts.
 
+**Set up your workspace**
+- **CLAUDE.md Generator**: scan a project folder and write a CLAUDE.md and AGENTS.md, so Claude knows what the project is for, where things live, and what good work looks like.
+
 After the menu, add one line: "Skills that read your apps (Gmail, Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, Notion, OpenSEO) need that app connected on the Maker Labs Connectors tab. Everything else works with what you paste."
 
-When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, wanting AI writing to sound like them → Voice Builder, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.
+When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, wanting AI writing to sound like them → Voice Builder, setting up a project folder for Claude → CLAUDE.md Generator, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.

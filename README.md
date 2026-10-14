@@ -1,6 +1,6 @@
 # Maker Labs
 
-Maker Labs is a set of sixteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). Install it in Claude chat, Cowork, or Claude Code, or use the Codex marketplace instructions below.
+Maker Labs is a set of seventeen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). Install it in Claude chat, Cowork, or Claude Code, or use the Codex marketplace instructions below.
 
 ## Install
 
@@ -57,7 +57,7 @@ These commands match the Codex CLI help and [OpenAI's marketplace documentation]
 
 ## Skills
 
-Version 0.1.24 contains sixteen skills. Each one works on its own; use them in any order.
+Version 0.1.25 contains seventeen skills. Each one works on its own; use them in any order.
 
 ### Find something to say
 
@@ -92,6 +92,9 @@ Version 0.1.24 contains sixteen skills. Each one works on its own; use them in a
 
 - **Daily Work Brief**: start the day knowing what matters. It reads your email and calendar, and Slack if you connect it, then recommends where to start, flags requests waiting on you, checks whether threads are still open, and prepares you for today's meetings. It's read-only: it never sends, books, or changes anything.
 - **Meeting Decisions**: find out what was actually agreed. It pulls meeting transcripts or notes from Zoom, Granola, Wispr Flow, Google Drive (Google Meet transcripts and Gemini notes), or files you supply, and lists decisions, action items with owners, and open questions, each linked to the moment it was said. It separates real commitments from suggestions and can trace how a decision changed across meetings.
+### Set up your workspace
+
+- **CLAUDE.md Generator**: give Claude an operating manual for any project, so you stop re-explaining it every session. It scans your project folder (file names only, never contents, and never secrets), works out the job the project does, what goes in, what comes out, and the standard it must meet, then shows you a proposal with every point marked as observed, inferred, or unknown. After you approve, it writes a `CLAUDE.md` for Claude and a matching `AGENTS.md` for Codex. Works for newsletters, client work, courses, and code. The full scan needs Cowork with the folder connected or Claude Code; in Claude chat it builds the files from your description. See [usage notes](skills/claude-md-generator/README.md).
 
 New here? In Claude, run `/maker-labs:start` for a short menu, or add your task after it (`/maker-labs:start I have messy notes for a newsletter`) to go straight to the right skill. You can also start by naming the skill and supplying the relevant draft, decision, or task. Each works independently; there is no router or required handoff. Pasted text remains a valid input.
 
@@ -135,7 +138,7 @@ The default review covers today's calendar, recent email activity, and a focused
 - **OpenSEO (optional).** The bundled MCP connection points to `https://app.openseo.so/mcp`. When you connect it and use SEO Brief or Competitor Analysis, your topic, keywords, and URLs are sent to OpenSEO under your own account. See [OpenSEO](https://openseo.so).
 - **Your own apps (optional).** The plugin lists the official connectors for Gmail, Google Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, and Notion on its **Connectors** tab. Nothing connects until you sign in to each one with your own account. Daily Work Brief, Meeting Decisions, Voice Builder, and Social Repurposer use them to read your data. Voice Builder reads only the transcripts you choose and keeps only your own words. They are read-only except that Social Repurposer saves to Notion when you ask.
 - **Web research.** Skills such as News Digest, Competitor Analysis, and Inverse Ideation use whatever web search tools your session already has.
-- **Local scripts.** Some skills ship readable scripts that run only when the skill needs them: `linkedin-carousel-html` runs a Node script that drives a local Chromium browser to export PDF/PNG; the carousel HTML templates load fonts from Google Fonts (fonts.googleapis.com, fonts.gstatic.com). `design-md-builder`, `visual-plan-builder`, `social-repurposer`, and `voice-md-builder` include Python scripts that read only local files. `design-md-builder` can run Google's `@google/design.md` linter (pinned to 0.4.0, via npx) only when you explicitly ask for that check.
+- **Local scripts.** Some skills ship readable scripts that run only when the skill needs them: `linkedin-carousel-html` runs a Node script that drives a local Chromium browser to export PDF/PNG; the carousel HTML templates load fonts from Google Fonts (fonts.googleapis.com, fonts.gstatic.com). `design-md-builder`, `visual-plan-builder`, `social-repurposer`, and `voice-md-builder` include Python scripts that read only local files. `claude-md-generator` runs a Python script that lists file and folder names in the project you choose, without reading file contents, and skips credential and `.env` files. `design-md-builder` can run Google's `@google/design.md` linter (pinned to 0.4.0, via npx) only when you explicitly ask for that check.
 
 ## License
 

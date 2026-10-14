@@ -1,0 +1,4 @@
+interface:
+  display_name: "CLAUDE.md Generator"
+  short_description: "Generate CLAUDE.md and AGENTS.md for a project"
+  default_prompt: "Use $claude-md-generator to scan this project and propose CLAUDE.md and AGENTS.md."

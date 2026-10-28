@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sales Page Builder"
+  short_description: "Audit and rewrite a sales page with a six-lens marketer review panel"
+  default_prompt: "Use $sales-page-builder to audit my sales page with the six-lens panel, trace every claim to a source, and rank the top fixes. Ask me about my offer first."

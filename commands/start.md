@@ -1,5 +1,5 @@
 ---
-description: Start here with Maker Labs. Shows what each of the seventeen skills does, asks what the reader is working on, and points them to the right one.
+description: Start here with Maker Labs. Shows what each of the eighteen skills does, asks what the reader is working on, and points them to the right one.
 ---
 
 The reader just ran the Maker Labs start command. Help them pick one skill and begin. Keep this short and friendly.
@@ -27,6 +27,9 @@ Otherwise, show this menu as written, then ask: "What are you working on? Paste 
 - **LinkedIn Carousel**: slides from your notes or article, in nine templates.
 - **DESIGN.md Builder**: a reusable brand guide so visuals stay on brand.
 
+**Sell it**
+- **Sales Page Builder**: audit, rewrite, or build a sales page, with a six-lens review panel and copy that uses only facts about your offer.
+
 **Decide and plan**
 - **Strategic Decision Framework**: pressure-test a business decision.
 - **Competitor Analysis**: a dated, sourced comparison of your alternatives.
@@ -41,4 +44,4 @@ Otherwise, show this menu as written, then ask: "What are you working on? Paste 
 
 After the menu, add one line: "Skills that read your apps (Gmail, Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, Notion, OpenSEO) need that app connected on the Maker Labs Connectors tab. Everything else works with what you paste."
 
-When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, wanting AI writing to sound like them → Voice Builder, setting up a project folder for Claude → CLAUDE.md Generator, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.
+When they answer, choose one skill. If two fit, name both in one line and pick the one that matches their material: notes → Brain Dump to Content, an expert topic with no notes → Interview to Draft, a finished draft → Draft Review Panel or Anti-Slop, wanting AI writing to sound like them → Voice Builder, setting up a project folder for Claude → CLAUDE.md Generator, a sales or landing page → Sales Page Builder, a finished post → Social Repurposer. Then load that skill and follow it. Do not run several skills at once.

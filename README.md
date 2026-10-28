@@ -1,6 +1,6 @@
 # Maker Labs
 
-Maker Labs is a set of seventeen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). Install it in Claude chat, Cowork, or Claude Code, or use the Codex marketplace instructions below.
+Maker Labs is a set of eighteen independent skills for creators and solo operators, by Wyndo ([AI With Wyndo](https://aiwithwyndo.com)). Install it in Claude chat, Cowork, or Claude Code, or use the Codex marketplace instructions below.
 
 ## Install
 
@@ -57,7 +57,7 @@ These commands match the Codex CLI help and [OpenAI's marketplace documentation]
 
 ## Skills
 
-Version 0.1.25 contains seventeen skills. Each one works on its own; use them in any order.
+Version 0.1.26 contains eighteen skills. Each one works on its own; use them in any order.
 
 ### Find something to say
 
@@ -82,6 +82,10 @@ Version 0.1.25 contains seventeen skills. Each one works on its own; use them in
 - **LinkedIn Carousel**: turn notes, a transcript, a draft, or an article link into a LinkedIn carousel using one of nine designed templates. You approve an HTML preview first, then export a PDF and individual PNG slides. Your name, photo or logo, and default template are saved once and reused. Automatic export needs Node and a Chromium browser; otherwise you get print-ready HTML.
 - **DESIGN.md Builder**: turn your brand references (website, past designs, style notes) into a reusable brand guide that any AI tool can follow when making websites, slides, lead magnets, or reports. It records where each rule came from, flags gaps and conflicts, and keeps a list of accepted corrections so the same design mistakes stop repeating. See [usage notes](skills/design-md-builder/README.md).
 
+### Sell it
+
+- **Sales Page Builder**: find out why your sales page isn't converting, then fix it with copy you can stand behind. It interviews you once about your offer and saves an `offer-brief.md`, reads your live page the way a visitor sees it, traces every claim to a source, and ranks the top five fixes. Six independent reviewers read the page first, each through one lens: offer value, headline and facts, conversational momentum, buyer anxiety, who it's for, and a simulated skeptical buyer. It can also plan the sections and write the copy, using only facts you gave it. It won't add a deadline, testimonial, guarantee, or number your offer can't back up, and it never submits forms or edits your site. Works for courses, cohorts, services, memberships, paid newsletters, digital products, workshops, and lead magnets. See [usage notes](skills/sales-page-builder/README.md).
+
 ### Decide and plan
 
 - **Strategic Decision Framework**: pressure-test a business decision such as a launch, a price change, or which project to do next. It looks at the choice through a few strategic lenses, separates evidence from assumptions, and recommends a small, reversible test with clear measures of success, so you can decide with more than gut feel.
@@ -92,6 +96,7 @@ Version 0.1.25 contains seventeen skills. Each one works on its own; use them in
 
 - **Daily Work Brief**: start the day knowing what matters. It reads your email and calendar, and Slack if you connect it, then recommends where to start, flags requests waiting on you, checks whether threads are still open, and prepares you for today's meetings. It's read-only: it never sends, books, or changes anything.
 - **Meeting Decisions**: find out what was actually agreed. It pulls meeting transcripts or notes from Zoom, Granola, Wispr Flow, Google Drive (Google Meet transcripts and Gemini notes), or files you supply, and lists decisions, action items with owners, and open questions, each linked to the moment it was said. It separates real commitments from suggestions and can trace how a decision changed across meetings.
+
 ### Set up your workspace
 
 - **CLAUDE.md Generator**: give Claude an operating manual for any project, so you stop re-explaining it every session. It scans your project folder (file names only, never contents, and never secrets), works out the job the project does, what goes in, what comes out, and the standard it must meet, then shows you a proposal with every point marked as observed, inferred, or unknown. After you approve, it writes a `CLAUDE.md` for Claude and a matching `AGENTS.md` for Codex. Works for newsletters, client work, courses, and code. The full scan needs Cowork with the folder connected or Claude Code; in Claude chat it builds the files from your description. See [usage notes](skills/claude-md-generator/README.md).
@@ -137,7 +142,7 @@ The default review covers today's calendar, recent email activity, and a focused
 - **No data collection.** The plugin has no server of its own, no analytics, and no telemetry. It stores nothing outside the files you ask it to create.
 - **OpenSEO (optional).** The bundled MCP connection points to `https://app.openseo.so/mcp`. When you connect it and use SEO Brief or Competitor Analysis, your topic, keywords, and URLs are sent to OpenSEO under your own account. See [OpenSEO](https://openseo.so).
 - **Your own apps (optional).** The plugin lists the official connectors for Gmail, Google Calendar, Google Drive, Slack, Zoom, Granola, Wispr Flow, and Notion on its **Connectors** tab. Nothing connects until you sign in to each one with your own account. Daily Work Brief, Meeting Decisions, Voice Builder, and Social Repurposer use them to read your data. Voice Builder reads only the transcripts you choose and keeps only your own words. They are read-only except that Social Repurposer saves to Notion when you ask.
-- **Web research.** Skills such as News Digest, Competitor Analysis, and Inverse Ideation use whatever web search tools your session already has.
+- **Web research.** Skills such as News Digest, Competitor Analysis, Inverse Ideation, and Sales Page Builder use whatever web search tools your session already has.
 - **Local scripts.** Some skills ship readable scripts that run only when the skill needs them: `linkedin-carousel-html` runs a Node script that drives a local Chromium browser to export PDF/PNG; the carousel HTML templates load fonts from Google Fonts (fonts.googleapis.com, fonts.gstatic.com). `design-md-builder`, `visual-plan-builder`, `social-repurposer`, and `voice-md-builder` include Python scripts that read only local files. `claude-md-generator` runs a Python script that lists file and folder names in the project you choose, without reading file contents, and skips credential and `.env` files. `design-md-builder` can run Google's `@google/design.md` linter (pinned to 0.4.0, via npx) only when you explicitly ask for that check.
 
 ## License

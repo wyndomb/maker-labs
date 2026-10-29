@@ -7,12 +7,44 @@ Every line carries a source: "user, [date]", a file name, or a URL. `[CONFIRM]` 
 
 - **What it is:** [one sentence] (source)
 - **Who it's for:** [buyer and situation] (source)
+- **Who it's not for:** [who should skip this, or "not stated"] (source)
 - **Deliverables:** [what they get] (source)
+- **Outcome:** [what's different for the buyer afterward, in plain words; seen or intended] (source)
+- **Time to first result:** [when the buyer first notices it working; seen or intended] (source)
 - **Format and duration:** [sessions, access, timeline, buyer time required] (source)
 - **Price and payment:** [price, plans, or how the price is set] (source)
 - **Refund or guarantee:** [only what actually exists, or "none"] (source)
 - **What happens after the main click:** [checkout, calendar, form plus reply time] (source)
 - **Real deadline or limit:** [date or cap, or "none"] (source)
+
+## Offer-Type Details
+
+Keep only the block for this offer's type. Delete the others.
+
+**Membership or paid newsletter**
+- **Tier differences:** [exactly what paid adds over free] (source)
+- **Cadence:** [what arrives, and how often] (source)
+- **Cancellation:** [how members cancel] (source)
+
+**Course or cohort**
+- **Dates:** [start and end dates, time zone] (source)
+- **Live or recorded, hours per week, replay access:** [details] (source)
+
+**Workshop or event**
+- **Date:** [date, time, time zone] (source)
+- **Agenda:** [what happens, in order] (source)
+- **Replay:** [replay policy, or "none"] (source)
+
+**Service**
+- **Process:** [steps from first contact to handover] (source)
+- **Client time:** [what the client provides and how much time it takes] (source)
+
+**Lead magnet**
+- **After signup:** [what arrives by email, and how often] (source)
+
+## Assets
+
+Sample issues, screenshots, preview pages, or a walkthrough the page can show. Link or file name for each.
 
 ## Numbers The Page May Use
 

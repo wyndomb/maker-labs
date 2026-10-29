@@ -87,6 +87,22 @@
         "Includes a short 'Who made it' section from the 9 years of bookkeeping, and labels the 14-client use as the seller's own use, not customer proof, with customer proof marked collect first.",
         "Matches the voice sample's plain tone instead of the reference page's all-caps hype, with no em dashes."
       ]
+    },
+    {
+      "id": "interview-paid-newsletter",
+      "input": "interview-paid-newsletter.md",
+      "expectations": [
+        "Turn 1 asks only the Round 1 questions the request leaves open, including the outcome and time-to-first-result question and the paid newsletter follow-up (what paid adds, cadence, cancellation, sample issues), and does not re-ask what the newsletter is.",
+        "Writes no page copy before the user answers.",
+        "Uses no more than two rounds of questions in total.",
+        "Writes an offer brief where every fact carries a source such as 'user, 2026-10-28' or a dated reader reply, and anything unanswered is marked [CONFIRM].",
+        "Records the outcome and time to first result as intended, not seen, and the page describes them as what the paid tier is built for, never as a promised result.",
+        "Fills the membership block of Offer-Type Details with the tier differences, monthly cadence of the survey and Q&A, and Substack cancellation, and lists the two sample issues under Assets.",
+        "Records Marta Ruiz's quote as public offer proof dated 2026-08-14, and the 2,300 free subscribers as seller proof as of 2026-10-01, not as proof the paid tier works.",
+        "Labels agency rate sheets and the 'what's different' objection as heard, and forum threads and the $8 price worry as hypothesis.",
+        "Uses the membership structure, with a Free vs paid section built from the tier differences and a price, billing, and cancel section that states no refund policy beyond what the brief records.",
+        "Contains no 'guaranteed' raise or income claim, no countdown, no invented member count for the paid tier, and no em dashes."
+      ]
     }
   ]
 }

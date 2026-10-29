@@ -24,7 +24,9 @@ It won't add a countdown you don't have, a testimonial nobody gave, or a number 
 - "Use Sales Page Builder to build a sales page for my Notion template pack."
 - "Just run the Ogilvy lens on my headline."
 
-The first run asks up to two rounds of short questions about your offer and saves the answers as `offer-brief.md`. Later runs reuse it. One of the questions asks what your buyers already tried before finding you, so the page can name it.
+The first run asks up to two rounds of short questions about your offer and saves the answers as `offer-brief.md`. Later runs reuse it. One of the questions asks what your buyers already tried before finding you, so the page can name it. Another asks what changes for your buyer afterward and when they first notice it, and there's one follow-up for your type of offer, like what your paid tier adds over the free one.
+
+If your chat can't save files (a regular claude.ai chat, for example), the brief comes back as text instead. Save it somewhere and upload it the next time you use the skill, so you don't have to answer the questions again.
 
 You can also share a sales page you admire. The skill borrows its section order and pacing, and never its lines, claims, guarantees, or bonuses. If you sell a digital product, share the product files or the module list, and the "what's inside" section comes from those.
 

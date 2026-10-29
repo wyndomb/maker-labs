@@ -18,7 +18,7 @@ Starting templates by offer type. Each section lists what it must do and which p
 3. **What the engagement is:** scope, duration, deliverables, what the client puts in. *Brief: deliverables, client time.*
 4. **How it works:** three to five steps from first call to handover. *Brief: process.*
 5. **Proof from clients:** results, quotes, before-and-after. If none exist, use the seller's own use of the same system, labeled as theirs, and mark client proof "collect first." *Brief: offer proof.*
-6. **Who it's for and not for.** *Brief: fit.*
+6. **Who it's for and not for.** *Brief: who it's for, who it's not for.*
 7. **Price or pricing method.** *Brief: price.*
 8. **FAQ from real objections.** *Brief: objections, heard ones first.*
 9. **The ask:** the form or calendar, plus what happens next and how fast. *Brief: next step, response time.*
@@ -33,7 +33,7 @@ Starting templates by offer type. Each section lists what it must do and which p
 5. **Format and schedule:** dates, time zones, live or recorded, time per week, replay access. *Brief: format, dates.*
 6. **Instructor:** why this person can teach it. *Brief: seller proof.*
 7. **Student proof:** quotes and results from past students. For a first cohort, use pilot feedback or the instructor's own results, labeled honestly. *Brief: offer proof.*
-8. **Who it's for and not for.** *Brief: fit.*
+8. **Who it's for and not for.** *Brief: who it's for, who it's not for.*
 9. **Price, payment options, and refund policy.** Only the policies that actually exist. *Brief: price, refund.*
 10. **FAQ.** *Brief: objections.*
 11. **Enrollment:** CTA plus the real close date or seat limit, if there is one. *Brief: deadline.*
@@ -65,9 +65,9 @@ Starting templates by offer type. Each section lists what it must do and which p
 ## Workshop, Webinar, Or Live Event
 
 1. **Hero:** what attendees will make or learn, the date, time and time zone, and the CTA. *Brief: outcome, date.*
-2. **Agenda.** *Brief: format.*
+2. **Agenda.** *Brief: agenda.*
 3. **Host.** *Brief: seller proof.*
-4. **Who it's for.** *Brief: fit.*
+4. **Who it's for.** *Brief: who it's for, who it's not for.*
 5. **Price, or free, plus the replay policy.** *Brief: price, replay.*
 6. **Proof from past events.** *Brief: offer proof.*
 7. **CTA, with the registration close if it's real.** *Brief: deadline.*

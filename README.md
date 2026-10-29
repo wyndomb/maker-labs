@@ -57,7 +57,7 @@ These commands match the Codex CLI help and [OpenAI's marketplace documentation]
 
 ## Skills
 
-Version 0.1.26 contains eighteen skills. Each one works on its own; use them in any order.
+Version 0.1.27 contains eighteen skills. Each one works on its own; use them in any order.
 
 ### Find something to say
 
